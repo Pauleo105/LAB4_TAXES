@@ -2,46 +2,60 @@
 #define _TAX_H_
 #include <iostream>
 #include <string>
-
-struct date{
-    private:
-        short int dd;
-        short int mm;
-        short int yy;
-    public:
-        date(): dd(1), mm(1), yy(1990) {};
-        date(int d, int m, int y): dd(d), mm(m), yy(y) {};
-        void setDate();
-        friend std::ostream& operator <<(std::ostream& c, const date& d) {c << d.dd << '.' << d.mm << '.' << d.yy; return c;};
-};
+#include <iomanip>
+#include <list>
+#include <map>
 
 namespace taxes {
     class Payment {
         private:
-            date Date;
+            std::tm date;
             std::string type;
             unsigned int summ;
         public:
-            Payment* next;
+            Payment():type("Salary"), summ(10000) {date.tm_mday = 1;date.tm_mon = 0;date.tm_year = 120;};
+            Payment(int, int, std::string ttype = "Salary", unsigned int sum = 10000);
+            Payment(std::string ttype, unsigned int sum = 10000);
+            Payment(unsigned int sum);
 
+            void setDate(int, int);
+            void setType(std::string str) {type = str;};
+            void setSumm(unsigned int sum) {summ = sum;};
+
+            std::string getType() {return type;};
+            unsigned int getSum() {return summ;};
+            friend std::ostream& operator <<(std::ostream&, const Payment&);
     };
 
     class Budget {
         private:
-            std::string fullname;
+            std::string sorname;
+            std::string name;
+            std::string lastname;
             std::string workplace;
             std::string post;
-            Payment* ptr;
+            std::list<Payment> ptr;
         protected:
             virtual std::ostream& print(std::ostream&) const;
         public:
-            void getInfo();
-            std::string getType(); //contract, budget, mixed
+            Budget(std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): 
+                sorname(sor), name(nam), lastname(las), workplace("MEPHI"), post("Rector") {ptr.resize(1);}
+            Budget(int d, int m, std::string pay, unsigned int am): sorname("Ivanov"), name("Ivan"), lastname("Ivanovich"), workplace("MEPHI"), post("Rector") 
+                {ptr.resize(1, (d, m, pay, am));}
+            Budget(int d, int m, std::string pay, unsigned int am, std::string sor, std::string nam, std::string las, std::string wor, std::string pos): 
+                sorname(sor), name(nam), lastname(las), workplace("MEPHI"), post("Rector") {ptr.resize(1, (d, m, pay, am));}
+            //место для ваших конструкторов
+            void setName(std::string str) {name = str;};
+            void setSorname(std::string str) {sorname = str;};
+            void setLastname(std::string str) {lastname = str;};
+            void setWorkplace(std::string str) {workplace = str;};
+            void setPost(std::string str) {post = str;};
+            void getInfo() {std::cout << *this;};
+            virtual std::string getType() const {return "Budget";};
             unsigned int getGain() const;
-            std::string getName() const;
-            std::string getWork() const;
-
-            virtual void addPayment(int n = 0);
+            std::string getName() const {return sorname+name[0]+'.'+lastname[0]+'.';};
+            std::string getWork() const {return workplace;};
+            void addPayment();
 
             friend std::ostream& operator <<(std::ostream&, const Budget&);
     };
@@ -50,24 +64,39 @@ namespace taxes {
         private:
             long contractnum;
         protected:
-            virtual std::ostream& print(std::ostream&) const;
+            std::ostream& print(std::ostream&) const override;
         public:
-            unsigned int getContractNum() const;
-
-            virtual void addPayment(int n = 0);
-
+            Contract(): Budget(), contractnum(100) {};
+            Contract(unsigned int num): Budget(), contractnum(num) {};
+            Contract(unsigned int num, int d, int m, std::string pay, unsigned int am, std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", 
+                std::string wor = "MEPHI", std::string pos = "Rector"): Budget(d, m, pay, am, sor, nam, las, wor, pos), contractnum(num) {};
+            void setNum(long n) {contractnum = n;};
+            unsigned int getContractNum() const {return contractnum;};
+            std::string getType() const override {return "Contract";};
+            friend std::ostream& operator <<(std::ostream&, const Contract&);
     };
 
     class Table {
         private:
-            long* personal;
-            Budget** man;
+            std::map <unsigned int, std::list<Budget>> table;
         public:
-            void add() const;
-            Budget& find(int, int) const;
-            void del(int, int);
+            void add(const Budget& b, unsigned int num) {table[num].push_back(b);};
+            Budget* find(int, int);
+            void ddelete(int, int);
             void show();
     };
 }
+int choise(const char* menu[]);
+int add_m(taxes::Table&);
+int find_m(taxes::Table&);
+int delete_m(taxes::Table&);
+int show_m(taxes::Table&);
+
+template <class T>
+T getNum(T& a) {
+        std::cin >> a;
+        if (!std::cin.good()) return -1;
+        return 1;
+    };
 
 #endif
