@@ -96,21 +96,21 @@ namespace taxes {
         return c;
     }
 
-    void Table::add(Contract* b, unsigned int num) {
-        table.insert(std::pair<unsigned int, Contract*>(num, b));
+    void Table::add(Budget* b, unsigned int num) {
+        table.insert(std::pair<unsigned int, Budget*>(num, b));
     }
 
-    int Table::ffind(Budget* &ptr, unsigned int a, unsigned int b) { //a- private num, b - contract number
+    int Table::find(Budget* &ptr, unsigned int a, unsigned int b) { //a- private num, b - contract number
         if (a < 0 || b < 0) throw std::runtime_error("Invalid numbers!");
-        std::pair <std::multimap <unsigned int, Contract*>::iterator, std::multimap <unsigned int, Contract*>::iterator> pp;
+        std::pair <std::multimap <unsigned int, Budget*>::iterator, std::multimap <unsigned int, Budget*>::iterator> pp;
         pp = table.equal_range(a);
-        for (std::multimap <unsigned int, Contract*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
+        for (std::multimap <unsigned int, Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
             std::string type =  (*tmp).second->getType();
             if ((*tmp).second->getType() == "Budget" && b == 0) {
                 ptr = (*tmp).second;
                 return 1;
             }
-            else if ((*tmp).second->getType() == "Contract" && b == tmp->second->getContractNum()) {
+            else if ((*tmp).second->getType() == "Contract" && b == ((Contract*)tmp->second)->getContractNum()) {
                 ptr = (*tmp).second; 
                 return 1;
             }
@@ -119,26 +119,27 @@ namespace taxes {
         return 0;
     }
 
-    void Table::ddelete(int a, int b) {
-    //     Budget* ptr = find(a, b);
-    //     if (ptr != nullptr) {
-    //         std::map <unsigned int, std::list<Budget>>::iterator it;
-    //         it = table.find(a);
-    //         for (auto tmp = it->second.begin(); tmp != it->second.end(); tmp++) {
-    //             if (&*tmp == ptr) {
-    //                 it->second.erase(tmp);
-    //                 break;
-    //             }
-    //         }
-    //         if (it->second.empty()) table.erase(it);
-    //     }
-    //     else throw std::runtime_error("No such element!");
+    int Table::ddelete(unsigned int a,unsigned int b) {
+        Budget* ptr;
+        if(!find(ptr, a, b)) return 0;
+        else {
+            if (a < 0 || b < 0) throw std::runtime_error("Invalid numbers!");
+            std::pair <std::multimap <unsigned int, Budget*>::iterator, std::multimap <unsigned int, Budget*>::iterator> pp;
+            pp = table.equal_range(a);
+            for (std::multimap <unsigned int, Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
+                if ((*tmp).second == ptr) table.erase(tmp);
+                break; 
+            }
+            return 1;
+        }
+
     }
 
     void Table::show() {
-        std::cout << "Private number" << "\t\t" << "Other information" << std::endl;
-        for (std::multimap <unsigned int, Contract*>::iterator it = table.begin(); it != table.end(); ++it) {
-            std::cout << (*it).first << "\t\t" << *((*it).second) << std::endl;
+        std::cout << "\n" << "\e[1mTable: \e[0m" << std::endl << "------------------------------------------------------------" << std::endl;
+        for (std::multimap <unsigned int, Budget*>::iterator it = table.begin(); it != table.end(); ++it) {
+            std::cout << "\e[1mPrivate number: \e[0m" << (*it).first << std::endl << "\e[1mOther information: \e[0m" << std::endl << *((*it).second) << 
+            "-------------------------------------------------------------" << std::endl;
         }
     }
 }
@@ -179,14 +180,19 @@ int add_m(taxes::Table& tab) {
     std::string name, sor, last;
     (ptr != nullptr) ? (name = ptr->getOnlyName(), sor = ptr->getOnlySorname(), last = ptr->getOnlyLastame()) : 
     (name = getstring("name"), sor = getstring("sorname"), last = getstring("lastname"));
-    taxes::Contract* b = new taxes::Contract(sor, name, last, getstring("work"), getstring("post"));
-    if (check) ((taxes::Contract*)b)->setNum(contract);
-    tab.add(((taxes::Contract*)b), num);
+    if (check) {
+        taxes::Budget* b = new taxes::Contract(contract, sor, name, last, getstring("work"), getstring("post"));
+        tab.add(b, num);
+    }
+    else {
+        taxes::Budget* b = new taxes::Budget(sor, name, last, getstring("work"), getstring("post"));
+        tab.add(b, num);
+    }
     return 1;
 }
 
 int collisioncheck(taxes::Table& tab, taxes::Budget*& ptr, unsigned int& num, unsigned int& contract, int& check) {
-    int pul = tab.ffind(ptr, num, contract);
+    int pul = tab.find(ptr, num, contract);
     if (pul) {
         std::cout << "This contract already exists! Please choose another contract number." << std::endl;
         std::string temp;
@@ -223,10 +229,29 @@ int getcontr() {
 
 
 int find_m(taxes::Table&) {
+    
     return 1;
 }
 
-int delete_m(taxes::Table&) {
+int delete_m(taxes::Table& table) {
+    unsigned int num;
+    int check;
+    const char* pr = "";
+    std::cout << "Enter the private number: ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(num) < 0);
+    pr = "";
+    std::cout << "Enter the type of the worker(contract - 1, budget - 0): ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(check) < 0 || (check != 0 && check != 1));
+    pr = "";
+    unsigned int contract = check ? getcontr() : 0;
+    if (!table.ddelete(num, contract)) std::cout << "This person doesn't exist!" << std::endl;
+    else std::cout << "Deleted successfully!" << std::endl; 
     return 1;
 }
 

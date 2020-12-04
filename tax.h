@@ -75,6 +75,7 @@ namespace taxes {
             Contract(unsigned int num): Budget(), contractnum(num) {};
             Contract(unsigned int num, int d, int m, std::string pay, unsigned int am, std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", 
                 std::string wor = "MEPHI", std::string pos = "Rector"): Budget(d, m, pay, am, sor, nam, las, wor, pos), contractnum(num) {};
+            Contract(unsigned int num, std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): Budget(sor, nam, las, wor, pos), contractnum(num) {};
             void setNum(long n) {contractnum = n;};
             unsigned int getContractNum() const {return contractnum;};
             std::string getType() const override {return "Contract";};
@@ -83,11 +84,11 @@ namespace taxes {
 
     class Table {
         private:
-            std::multimap <unsigned int, Contract*> table;
+            std::multimap <unsigned int, Budget*> table;
         public:
-            void add(Contract*, unsigned int);
-            int ffind(Budget*&, unsigned int, unsigned int);
-            void ddelete(int, int);
+            void add(Budget*, unsigned int);
+            int find(Budget*&, unsigned int, unsigned int);
+            int ddelete(unsigned int,unsigned int);
             void show();
     };
 }
