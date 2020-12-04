@@ -48,6 +48,13 @@ namespace taxes {
         return c;
     };
 
+    std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> Budget::getIt() {
+        std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> tmp;
+        tmp.first = ptr.begin();
+        tmp.second = ptr.end();
+        return tmp;
+    }
+
     unsigned int Budget::getGain() const {
         unsigned int gain = 0;
         const char* pr = "";
@@ -79,7 +86,7 @@ namespace taxes {
         do {
             std::cout << pr;
             pr = "Error! Try again!\n";
-        } while (getNum(sal) < 0);
+        } while (getNum(sal) < 2);
         std::cout << std::endl;
         Payment p(t.tm_mday, t.tm_mon, typ, sal);
         ptr.push_back(p);
@@ -132,7 +139,23 @@ namespace taxes {
             }
             return 1;
         }
+    }
 
+    double Table::counttax(unsigned int num) {
+        double tax = 0;
+        taxes::Budget* ptr;
+        find(ptr, num, 0);
+        if (ptr == nullptr) std::cout << "Person with this private number doesn't exist!" << std::endl;
+        else {
+            std::pair <std::multimap <unsigned int, taxes::Budget*>::iterator, std::multimap <unsigned int, taxes::Budget*>::iterator> pp;
+            pp = table.equal_range(num);
+            for (std::multimap <unsigned int, taxes::Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
+                for (std::list<Payment>::iterator tmp1 = tmp->second->getIt().first; tmp1 != tmp->second->getIt().second; tmp1++) {
+                    tax += tmp1->getSum()*0.13;
+                }
+            }
+        }
+        return tax;
     }
 
     void Table::show() {
@@ -152,8 +175,8 @@ int choise(const char* menu[]) {
         pr = "You made a mistake! Try again!";
         for (int i = 0; i < 9; i++) std::cout << menu[i] << '\n';
         std::cout << "Make your choise: ";
-        if (getNum(check) < 0) continue;
-    } while(check < 0 || check > 8);
+        if (getNum(check) < 2) continue;
+    } while(check < 0 || check > 7);
     std::cout.clear();
     return check;
 }
@@ -166,13 +189,13 @@ int add_m(taxes::Table& tab) {
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(num) < 0);
+    } while (getNum(num) < 2);
     pr = "";
     std::cout << "Enter the type of the worker(contract - 1, budget - 0): ";
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(check) < 0 || (check != 0 && check != 1));
+    } while (getNum(check) < 2 || (check != 0 && check != 1));
     pr = "";
     unsigned int contract = check ? getcontr() : 0;
     taxes::Budget* ptr = nullptr;
@@ -221,15 +244,31 @@ int getcontr() {
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(contract) < 0);
+    } while (getNum(contract) < 2);
     pr = "";
     return contract;
 }
 
-
-
-int find_m(taxes::Table&) {
-    
+int find_m(taxes::Table& table) {
+    unsigned int num;
+    int check;
+    const char* pr = "";
+    std::cout << "Enter the private number: ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(num) < 2);
+    pr = "";
+    std::cout << "Enter the type of the worker(contract - 1, budget - 0): ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(check) < 2 || (check != 0 && check != 1));
+    pr = "";
+    unsigned int contract = check ? getcontr() : 0;
+    taxes::Budget* ptr;
+    if (table.find(ptr, num, contract)) std::cout << "Your element is:" << std::endl << *ptr << std::endl;
+    else std::cout << "Your element is not found!" << std::endl; 
     return 1;
 }
 
@@ -241,13 +280,13 @@ int delete_m(taxes::Table& table) {
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(num) < 0);
+    } while (getNum(num) < 2);
     pr = "";
     std::cout << "Enter the type of the worker(contract - 1, budget - 0): ";
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(check) < 0 || (check != 0 && check != 1));
+    } while (getNum(check) < 2 || (check != 0 && check != 1));
     pr = "";
     unsigned int contract = check ? getcontr() : 0;
     if (!table.ddelete(num, contract)) std::cout << "This person doesn't exist!" << std::endl;
@@ -257,5 +296,18 @@ int delete_m(taxes::Table& table) {
 
 int show_m(taxes::Table& table) {
     table.show();
+    return 1;
+}
+
+int counttaxes_m(taxes::Table& table) {
+    unsigned int num;
+    const char* pr = "";
+    std::cout << "Enter the private number: ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(num) < 2);
+    unsigned int fin = table.counttax(num);
+    std::cout << "Summary gain of person with id number \"" << num << "\" is " << fin << std::endl;
     return 1;
 }

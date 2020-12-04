@@ -50,6 +50,9 @@ namespace taxes {
             void setLastname(std::string str) {lastname = str;};
             void setWorkplace(std::string str) {workplace = str;};
             void setPost(std::string str) {post = str;};
+            //
+            std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> getIt();
+            //
             void getInfo() {std::cout << *this;};
             virtual std::string getType() const {return "Budget";};
             unsigned int getGain() const;
@@ -90,6 +93,7 @@ namespace taxes {
             int find(Budget*&, unsigned int, unsigned int);
             int ddelete(unsigned int,unsigned int);
             void show();
+            double counttax(unsigned int);
     };
 }
 int choise(const char* menu[]);
@@ -97,6 +101,7 @@ int add_m(taxes::Table&);
 int find_m(taxes::Table&);
 int delete_m(taxes::Table&);
 int show_m(taxes::Table&);
+int counttaxes_m(taxes::Table&);
 
 int collisioncheck(taxes::Table&, taxes::Budget*&, unsigned int&, unsigned int&, int&);
 int getcontr();
@@ -105,8 +110,8 @@ std::string getstring(const std::string);
 template <class T>
 T getNum(T& a) {
         std::cin >> a;
-        if (!std::cin.good()) return -1;
-        return 1;
+        if (!std::cin.good()) return 1;
+        return 2;
     };
 
 #endif
