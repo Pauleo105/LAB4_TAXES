@@ -96,42 +96,49 @@ namespace taxes {
         return c;
     }
 
-    Budget* Table::find(int a, int b) {
-        std::map <unsigned int, std::list<Budget>>::iterator it;
-        it = table.find(a);
-        if (it == table.end()) return nullptr;
-        for (auto ptr = it->second.begin(); ptr != it->second.end(); ptr++) {
-            if ((*ptr).getType() == "Budget" && b == 0) return &(*ptr);
-            else if ((*ptr).getType() == "Contract") {
-                Contract* pp = (Contract*)&(*ptr);
-                if (pp->getContractNum() == b) return pp;
+    void Table::add(Contract* b, unsigned int num) {
+        table.insert(std::pair<unsigned int, Contract*>(num, b));
+    }
+
+    int Table::ffind(Budget* &ptr, unsigned int a, unsigned int b) { //a- private num, b - contract number
+        if (a < 0 || b < 0) throw std::runtime_error("Invalid numbers!");
+        std::pair <std::multimap <unsigned int, Contract*>::iterator, std::multimap <unsigned int, Contract*>::iterator> pp;
+        pp = table.equal_range(a);
+        for (std::multimap <unsigned int, Contract*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
+            std::string type =  (*tmp).second->getType();
+            if ((*tmp).second->getType() == "Budget" && b == 0) {
+                ptr = (*tmp).second;
+                return 1;
+            }
+            else if ((*tmp).second->getType() == "Contract" && b == tmp->second->getContractNum()) {
+                ptr = (*tmp).second; 
+                return 1;
             }
         }
-        return nullptr;
+        ptr = (pp.first != pp.second) ? (*(pp.first)).second : nullptr;
+        return 0;
     }
 
     void Table::ddelete(int a, int b) {
-        Budget* ptr = find(a, b);
-        if (ptr != nullptr) {
-            std::map <unsigned int, std::list<Budget>>::iterator it;
-            it = table.find(a);
-            for (auto tmp = it->second.begin(); tmp != it->second.end(); tmp++) {
-                if (&*tmp == ptr) {
-                    it->second.erase(tmp);
-                    break;
-                }
-            }
-            if (it->second.empty()) table.erase(it);
-        }
-        else throw std::runtime_error("No such element!");
+    //     Budget* ptr = find(a, b);
+    //     if (ptr != nullptr) {
+    //         std::map <unsigned int, std::list<Budget>>::iterator it;
+    //         it = table.find(a);
+    //         for (auto tmp = it->second.begin(); tmp != it->second.end(); tmp++) {
+    //             if (&*tmp == ptr) {
+    //                 it->second.erase(tmp);
+    //                 break;
+    //             }
+    //         }
+    //         if (it->second.empty()) table.erase(it);
+    //     }
+    //     else throw std::runtime_error("No such element!");
     }
 
     void Table::show() {
         std::cout << "Private number" << "\t\t" << "Other information" << std::endl;
-        for (auto it : table) {
-            for (auto tmp = it.second.begin(); tmp != it.second.end(); tmp++) {
-                std::cout << it.first << "\t\t" << *tmp << std::endl;
-            }
+        for (std::multimap <unsigned int, Contract*>::iterator it = table.begin(); it != table.end(); ++it) {
+            std::cout << (*it).first << "\t\t" << *((*it).second) << std::endl;
         }
     }
 }
@@ -150,7 +157,7 @@ int choise(const char* menu[]) {
     return check;
 }
 
-int add_m(taxes::Table& table) { //BEDA
+int add_m(taxes::Table& tab) {
     unsigned int num;
     int check;
     const char* pr = "";
@@ -159,30 +166,61 @@ int add_m(taxes::Table& table) { //BEDA
         std::cout << pr;
         pr = "Error! Try again!\n";
     } while (getNum(num) < 0);
-    std::cout << "Enter the type(budget - 1/contract - 0): ";
     pr = "";
+    std::cout << "Enter the type of the worker(contract - 1, budget - 0): ";
     do {
         std::cout << pr;
         pr = "Error! Try again!\n";
-    } while (getNum(check) < 0 || (check != 1 && check != 0));
-    std::cout << "Write divided by whitespace following data: ";
-    if (!check) std::cout << "contract number, ";
-    std::cout << "day and month of payment, type of payment, summ, sorname, name, lastname, workplace, post: ";
-    unsigned int cnum;
-    int d, m, sum;
-    std::string type, sorname, name, lastname, workplace, post;
-    if (!check) std::cin >> cnum;
-    std::cin >> d >> m >> type >> sum >> sorname >> name >> lastname >> workplace >> post;
-    if (!check) {
-        taxes::Contract bb(cnum, d, m, type, sum, sorname, name, lastname, workplace, post);
-        table.add(bb, num);
-    }
-    else {
-        taxes::Budget bb(d, m, type, sum, sorname, name, lastname, workplace, post);
-        table.add(bb, num);
+    } while (getNum(check) < 0 || (check != 0 && check != 1));
+    pr = "";
+    unsigned int contract = check ? getcontr() : 0;
+    taxes::Budget* ptr = nullptr;
+    if (!collisioncheck(tab, ptr, num, contract, check)) return 1;
+    std::string name, sor, last;
+    (ptr != nullptr) ? (name = ptr->getOnlyName(), sor = ptr->getOnlySorname(), last = ptr->getOnlyLastame()) : 
+    (name = getstring("name"), sor = getstring("sorname"), last = getstring("lastname"));
+    taxes::Contract* b = new taxes::Contract(sor, name, last, getstring("work"), getstring("post"));
+    if (check) ((taxes::Contract*)b)->setNum(contract);
+    tab.add(((taxes::Contract*)b), num);
+    return 1;
+}
+
+int collisioncheck(taxes::Table& tab, taxes::Budget*& ptr, unsigned int& num, unsigned int& contract, int& check) {
+    int pul = tab.ffind(ptr, num, contract);
+    if (pul) {
+        std::cout << "This contract already exists! Please choose another contract number." << std::endl;
+        std::string temp;
+        std::cout << "Continue?" << "\n" << "(Type y[Yes] or n [No]) ---> ";
+        std::cin >> temp;
+        if (temp != "y") return 0;
+        check = 1;
+        contract = getcontr();
+        if (collisioncheck(tab, ptr, num, contract, check)) return 1;
+        else return 0;
     }
     return 1;
 }
+
+std::string getstring(const std::string what) {
+    std::string temp;
+    std::cout << "Please enter " << what << ": ";
+    std::cin >> temp;
+    return temp;
+}
+
+int getcontr() {
+    std::cout << "Enter contruct number: ";
+    const char* pr = "";
+    int contract;
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(contract) < 0);
+    pr = "";
+    return contract;
+}
+
+
 
 int find_m(taxes::Table&) {
     return 1;

@@ -39,7 +39,7 @@ namespace taxes {
             virtual std::ostream& print(std::ostream&) const;
         public:
             Budget(std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): 
-                sorname(sor), name(nam), lastname(las), workplace("MEPHI"), post("Rector") {ptr.resize(1);}
+                sorname(sor), name(nam), lastname(las), workplace(wor), post(pos) {ptr.resize(1);}
             Budget(int d, int m, std::string pay, unsigned int am): sorname("Ivanov"), name("Ivan"), lastname("Ivanovich"), workplace("MEPHI"), post("Rector") 
                 {ptr.resize(1, (d, m, pay, am));}
             Budget(int d, int m, std::string pay, unsigned int am, std::string sor, std::string nam, std::string las, std::string wor, std::string pos): 
@@ -53,7 +53,12 @@ namespace taxes {
             void getInfo() {std::cout << *this;};
             virtual std::string getType() const {return "Budget";};
             unsigned int getGain() const;
-            std::string getName() const {return sorname+name[0]+'.'+lastname[0]+'.';};
+            std::string getName() const {return sorname+' '+name[0]+'.'+lastname[0]+'.';};
+            // сомнительная часть
+            std::string getOnlyName() const {return name;};
+            std::string getOnlySorname() const {return sorname;};
+            std::string getOnlyLastame() const {return lastname;};
+            //
             std::string getWork() const {return workplace;};
             void addPayment();
 
@@ -78,10 +83,10 @@ namespace taxes {
 
     class Table {
         private:
-            std::map <unsigned int, std::list<Budget>> table;
+            std::multimap <unsigned int, Contract*> table;
         public:
-            void add(const Budget& b, unsigned int num) {table[num].push_back(b);};
-            Budget* find(int, int);
+            void add(Contract*, unsigned int);
+            int ffind(Budget*&, unsigned int, unsigned int);
             void ddelete(int, int);
             void show();
     };
@@ -91,6 +96,10 @@ int add_m(taxes::Table&);
 int find_m(taxes::Table&);
 int delete_m(taxes::Table&);
 int show_m(taxes::Table&);
+
+int collisioncheck(taxes::Table&, taxes::Budget*&, unsigned int&, unsigned int&, int&);
+int getcontr();
+std::string getstring(const std::string);
 
 template <class T>
 T getNum(T& a) {
