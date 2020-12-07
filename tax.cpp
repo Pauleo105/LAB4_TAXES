@@ -108,7 +108,6 @@ namespace taxes {
     }
 
     int Table::find(Budget* &ptr, unsigned int a, unsigned int b) { //a- private num, b - contract number
-        if (a < 0 || b < 0) throw std::runtime_error("Invalid numbers!");
         std::pair <std::multimap <unsigned int, Budget*>::iterator, std::multimap <unsigned int, Budget*>::iterator> pp;
         pp = table.equal_range(a);
         for (std::multimap <unsigned int, Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
@@ -130,7 +129,6 @@ namespace taxes {
         Budget* ptr;
         if(!find(ptr, a, b)) return 0;
         else {
-            if (a < 0 || b < 0) throw std::runtime_error("Invalid numbers!");
             std::pair <std::multimap <unsigned int, Budget*>::iterator, std::multimap <unsigned int, Budget*>::iterator> pp;
             pp = table.equal_range(a);
             for (std::multimap <unsigned int, Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {

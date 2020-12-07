@@ -1,1 +1,3 @@
-taxx.vscode/.gitignore
+.vscode/
+taxx
+.gitignore
