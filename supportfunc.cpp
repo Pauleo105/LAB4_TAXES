@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include "supportfunc.h"
 #include "tax.h"
 #include <list>
 #include <map>

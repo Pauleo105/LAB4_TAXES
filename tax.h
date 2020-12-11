@@ -52,7 +52,7 @@ namespace taxes {
             void setPost(std::string str) {if (str.length() != 0) post = str;else throw std::runtime_error("Invalid input!");};
             std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> getIt();
             void getInfo() {std::cout << *this;};
-            virtual std::string getType() const {return "Budget";};
+            virtual std::string getType() const;
             unsigned int getGain() const;
             std::string getName() const {return surname+' '+name[0]+'.'+lastname[0]+'.';};
             std::string getOnlyName() const {return name;};
@@ -77,7 +77,7 @@ namespace taxes {
             Contract(unsigned int num, std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): Budget(sur, nam, las, wor, pos), contractnum(num) {};
             void setNum(long n) {contractnum = n;};
             unsigned int getContractNum() const {return contractnum;};
-            std::string getType() const override {return "Contract";};
+            std::string getType() const override;
             friend std::ostream& operator <<(std::ostream&, const Contract&);
     };
 
@@ -85,17 +85,13 @@ namespace taxes {
         private:
             std::multimap <unsigned int, Budget*> table;
         public:
-            void add(Budget* b, unsigned int num) {table.insert(std::pair<unsigned int, Budget*>(num, b));}
+            ~Table();
+            int add(Budget*, unsigned int);
             bool find(Budget*&, unsigned int, unsigned int);
             int ddelete(unsigned int,unsigned int);
             std::stringstream& show(std::stringstream&);
             double counttax(unsigned int);
     };
 }
-int getNum(unsigned int&);
-int getNum(int&);
-int collisioncheck(taxes::Table&, taxes::Budget*&, unsigned int&, unsigned int&, int&);
-int getcontr();
-std::string getstring(const std::string);
 
 #endif

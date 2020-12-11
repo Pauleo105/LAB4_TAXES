@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include "supportfunc.h"
 #include "tax.h"
+#include "global.h"
 #include <list>
 #include <map>
 #include <sstream>
@@ -91,6 +93,10 @@ namespace taxes {
     //     Payment p(t.tm_mday, t.tm_mon, typ, sal);
     // }
 
+    std::string Budget::getType() const {return types[0];}
+
+    std::string Contract::getType() const {return types[1];};
+
     std::ostream& Contract::print(std::ostream&c) const{
         c << "Contract number: " << contractnum << "\n";
         Budget::print(c);
@@ -102,16 +108,22 @@ namespace taxes {
         return c;
     }
 
+    Table::~Table() {
+        for (std::multimap <unsigned int, Budget*>::iterator tmp = table.begin(); tmp != table.end(); tmp++) {
+            delete tmp->second;
+        }
+    }
+
     bool Table::find(Budget* &ptr, unsigned int privat, unsigned int contract) {
         std::pair <std::multimap <unsigned int, Budget*>::iterator, std::multimap <unsigned int, Budget*>::iterator> pp;
         pp = table.equal_range(privat);
         for (std::multimap <unsigned int, Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
             std::string type =  (*tmp).second->getType();
-            if ((*tmp).second->getType() == "Budget" && contract == 0) {
+            if ((*tmp).second->getType() == types[0] && contract == 0) {
                 ptr = (*tmp).second;
                 return true;
             }
-            else if ((*tmp).second->getType() == "Contract" && contract == ((Contract*)tmp->second)->getContractNum()) {
+            else if ((*tmp).second->getType() == types[1] && contract == ((Contract*)tmp->second)->getContractNum()) {
                 ptr = (*tmp).second; 
                 return true;
             }
@@ -152,6 +164,15 @@ namespace taxes {
         }
         return tax;
     }
+
+    int Table::add(Budget* b, unsigned int num) {
+            unsigned int contract = (b->getType() == types[1]) ? ((Contract*)b)->getContractNum() : 0;
+            int check = (b->getType() == types[1]) ? 1 : 0;
+            taxes::Budget* ptr = nullptr;
+            if (!collisioncheck(*this, ptr, num, contract, check)) return 1;
+            table.insert(std::pair<unsigned int, Budget*>(num, b));
+            return 0;
+        }
 
     std::stringstream& Table::show(std::stringstream& ss) {
         ss << "\n" << "\e[1mTable: \e[0m" << std::endl << "------------------------------------------------------------" << std::endl;
