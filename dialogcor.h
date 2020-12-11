@@ -3,6 +3,7 @@
 #include "tax.h"
 #include "supportfunc.h"
 
+
 void showsub(taxes::Budget&);
 int choise_s(const char*, taxes::Budget&);
 int surname_s(taxes::Budget&);

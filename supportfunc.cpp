@@ -6,16 +6,25 @@
 #include <list>
 #include <map>
 #include <sstream>
+#include <limits>
 
 int getNum(unsigned int& a) {
         std::cin >> a;
-        if (!std::cin.good())  return 1; //почему азцикливается со строками
+        if (!std::cin.good())  {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return 1; //почему азцикливается со строками
+        }
         return 0;
     };
 
 int getNum(int& a) {
         std::cin >> a;
-        if (!(std::cin.good()) || (a < 0)) return 1;
+        if (!(std::cin.good()) || (a < 0)) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return 1;
+        }
         return 0;
     };
 
