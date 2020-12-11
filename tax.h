@@ -25,6 +25,7 @@ namespace taxes {
 
             std::string getType() {return type;};
             unsigned int getSum() {return summ;};
+            std::string getDate() {std::stringstream c; c << std::put_time(&(date), "%d/%m/%Y"); return c.str();}; //+++
             friend std::ostream& operator <<(std::ostream&, const Payment&);
     };
 
@@ -42,9 +43,9 @@ namespace taxes {
             Budget(std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): 
                 surname(sur), name(nam), lastname(las), workplace(wor), post(pos) {ptr.clear();}
             Budget(int d, int m, std::string pay, unsigned int am): surname("Ivanov"), name("Ivan"), lastname("Ivanovich"), workplace("MEPHI"), post("Rector") 
-                {ptr.resize(1, (d, m, pay, am));}
+                {Payment a(d, m, pay, am); ptr.resize(1, a);}
             Budget(int d, int m, std::string pay, unsigned int am, std::string sur, std::string nam, std::string las, std::string wor, std::string pos): 
-                surname(sur), name(nam), lastname(las), workplace(wor), post(pos) {ptr.resize(1, (d, m, pay, am));}
+                surname(sur), name(nam), lastname(las), workplace(wor), post(pos) {Payment a(d, m, pay, am); ptr.resize(1, a);}
             void setName(std::string str) {if (str.length() != 0) name = str;else throw std::runtime_error("Invalid input!");};
             void setSurname(std::string str) {if (str.length() != 0) surname = str;else throw std::runtime_error("Invalid input!");};
             void setLastname(std::string str) {if (str.length() != 0) lastname = str;else throw std::runtime_error("Invalid input!");};
@@ -53,12 +54,14 @@ namespace taxes {
             std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> getIt();
             void getInfo() {std::cout << *this;};
             virtual std::string getType() const;
-            unsigned int getGain() const;
+            unsigned int getGain(std::string) const;//---
             std::string getName() const {return surname+' '+name[0]+'.'+lastname[0]+'.';};
             std::string getOnlyName() const {return name;};
             std::string getOnlySurname() const {return surname;};
             std::string getOnlyLastame() const {return lastname;};
             std::string getWork() const {return workplace;};
+            std::string getPost() const {return post;}; //+++
+            bool isEmpty() const {return ptr.empty();};
             void addPayment(const Payment& p) {ptr.push_back(p);};
 
             friend std::ostream& operator <<(std::ostream&, const Budget&);
@@ -71,7 +74,6 @@ namespace taxes {
             std::ostream& print(std::ostream&) const override;
         public:
             Contract(): Budget(), contractnum(100) {};
-            Contract(unsigned int num): Budget(), contractnum(num) {};
             Contract(unsigned int num, int d, int m, std::string pay, unsigned int am, std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", 
                 std::string wor = "MEPHI", std::string pos = "Rector"): contractnum(num), Budget(d, m, pay, am, sur, nam, las, wor, pos) {};
             Contract(unsigned int num, std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): Budget(sur, nam, las, wor, pos), contractnum(num) {};

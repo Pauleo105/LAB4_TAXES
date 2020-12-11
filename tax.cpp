@@ -59,25 +59,17 @@ namespace taxes {
         return tmp;
     }
 
-    unsigned int Budget::getGain() const {
+    unsigned int Budget::getGain(std::string typ) const {
         unsigned int gain = 0;
-        std::string typ;
-        std::cout << "Enter the type: ";
-        std::cin >> typ;
         for (Payment tmp: ptr) {
             if (typ == tmp.getType()) gain += tmp.getSum();
         };
-        std::cout << "Gain for 2020 year by " << typ << ": " << gain << "\n";
         return gain;
     };
 
     std::ostream& operator <<(std::ostream&c, const Budget& b) {
         return b.print(c);
     };
-
-    // void interactive() {
-    //     
-    // }
 
     std::string Budget::getType() const {return types[0];}
 
