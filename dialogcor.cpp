@@ -77,7 +77,23 @@ int post_s(taxes::Budget& ptr) {
 } 
 
 int payment_s(taxes::Budget& ptr) {
-
+    std::tm t;
+    std::string typ;
+    unsigned int sal;
+    const char* pr = "";
+    std::cout << "Enter the date of this payment in format of dd.mm: ";
+    std::cin >> std::get_time(&t, "%d.%m");
+    t.tm_year = 120;
+    std::cout << "\nEnter the type of this payment: ";
+    std::cin >> typ;
+    std::cout << "\nEnter the amount of money: ";
+    do {
+        std::cout << pr;
+        pr = "Error! Try again!\n";
+    } while (getNum(sal) > 0);
+    std::cout << std::endl;
+    taxes::Payment p(t.tm_mday, t.tm_mon, typ, sal);
+    ptr.addPayment(p);
     return 1;
 }
 

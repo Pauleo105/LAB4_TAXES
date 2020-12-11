@@ -47,6 +47,7 @@ namespace taxes {
         c << "List of payments: " << std::endl;
         int i = 1;
         for (auto tmp = ptr.begin(); tmp!= ptr.end(); tmp++, i++) c << i << ") " << *tmp;
+        if (ptr.begin() == ptr.end()) c << "\e[1mEmpty\e[0m";
         c << std::endl;
         return c;
     };
@@ -75,22 +76,7 @@ namespace taxes {
     };
 
     // void interactive() {
-    //     std::tm t;
-    //     std::string typ;
-    //     unsigned int sal;
-    //     const char* pr = "";
-    //     std::cout << "Enter the date of this payment in format of dd.mm: ";
-    //     std::cin >> std::get_time(&t, "%d.%m");
-    //     t.tm_year = 120;
-    //     std::cout << "\nEnter the type of this payment: ";
-    //     std::cin >> typ;
-    //     std::cout << "\nEnter the amount of money: ";
-    //     do {
-    //         std::cout << pr;
-    //         pr = "Error! Try again!\n";
-    //     } while (getNum(sal) < 2);
-    //     std::cout << std::endl;
-    //     Payment p(t.tm_mday, t.tm_mon, typ, sal);
+    //     
     // }
 
     std::string Budget::getType() const {return types[0];}
