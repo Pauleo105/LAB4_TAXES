@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <list>
 #include <map>
+#include <sstream>
 
 namespace taxes {
     class Payment {
@@ -29,7 +30,7 @@ namespace taxes {
 
     class Budget {
         private:
-            std::string sorname;
+            std::string surname;
             std::string name;
             std::string lastname;
             std::string workplace;
@@ -38,32 +39,27 @@ namespace taxes {
         protected:
             virtual std::ostream& print(std::ostream&) const;
         public:
-            Budget(std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): 
-                sorname(sor), name(nam), lastname(las), workplace(wor), post(pos) {ptr.resize(1);}
-            Budget(int d, int m, std::string pay, unsigned int am): sorname("Ivanov"), name("Ivan"), lastname("Ivanovich"), workplace("MEPHI"), post("Rector") 
+            Budget(std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): 
+                surname(sur), name(nam), lastname(las), workplace(wor), post(pos) {ptr.clear();}
+            Budget(int d, int m, std::string pay, unsigned int am): surname("Ivanov"), name("Ivan"), lastname("Ivanovich"), workplace("MEPHI"), post("Rector") 
                 {ptr.resize(1, (d, m, pay, am));}
-            Budget(int d, int m, std::string pay, unsigned int am, std::string sor, std::string nam, std::string las, std::string wor, std::string pos): 
-                sorname(sor), name(nam), lastname(las), workplace("MEPHI"), post("Rector") {ptr.resize(1, (d, m, pay, am));}
-            //место для ваших конструкторов
-            void setName(std::string str) {name = str;};
-            void setSorname(std::string str) {sorname = str;};
-            void setLastname(std::string str) {lastname = str;};
-            void setWorkplace(std::string str) {workplace = str;};
-            void setPost(std::string str) {post = str;};
-            //
+            Budget(int d, int m, std::string pay, unsigned int am, std::string sur, std::string nam, std::string las, std::string wor, std::string pos): 
+                surname(sur), name(nam), lastname(las), workplace(wor), post(pos) {ptr.resize(1, (d, m, pay, am));}
+            void setName(std::string str) {if (str.length() != 0) name = str;else throw std::runtime_error("Invalid input!");};
+            void setSurname(std::string str) {if (str.length() != 0) surname = str;else throw std::runtime_error("Invalid input!");};
+            void setLastname(std::string str) {if (str.length() != 0) lastname = str;else throw std::runtime_error("Invalid input!");};
+            void setWorkplace(std::string str) {if (str.length() != 0) workplace = str;else throw std::runtime_error("Invalid input!");};
+            void setPost(std::string str) {if (str.length() != 0) post = str;else throw std::runtime_error("Invalid input!");};
             std::pair<std::list<Payment>::iterator, std::list<Payment>::iterator> getIt();
-            //
             void getInfo() {std::cout << *this;};
             virtual std::string getType() const {return "Budget";};
             unsigned int getGain() const;
-            std::string getName() const {return sorname+' '+name[0]+'.'+lastname[0]+'.';};
-            // сомнительная часть
+            std::string getName() const {return surname+' '+name[0]+'.'+lastname[0]+'.';};
             std::string getOnlyName() const {return name;};
-            std::string getOnlySorname() const {return sorname;};
+            std::string getOnlySurname() const {return surname;};
             std::string getOnlyLastame() const {return lastname;};
-            //
             std::string getWork() const {return workplace;};
-            void addPayment();
+            void addPayment(const Payment& p) {ptr.push_back(p);};
 
             friend std::ostream& operator <<(std::ostream&, const Budget&);
     };
@@ -76,9 +72,9 @@ namespace taxes {
         public:
             Contract(): Budget(), contractnum(100) {};
             Contract(unsigned int num): Budget(), contractnum(num) {};
-            Contract(unsigned int num, int d, int m, std::string pay, unsigned int am, std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", 
-                std::string wor = "MEPHI", std::string pos = "Rector"): Budget(d, m, pay, am, sor, nam, las, wor, pos), contractnum(num) {};
-            Contract(unsigned int num, std::string sor = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): Budget(sor, nam, las, wor, pos), contractnum(num) {};
+            Contract(unsigned int num, int d, int m, std::string pay, unsigned int am, std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", 
+                std::string wor = "MEPHI", std::string pos = "Rector"): contractnum(num), Budget(d, m, pay, am, sur, nam, las, wor, pos) {};
+            Contract(unsigned int num, std::string sur = "Ivanov", std::string nam = "Ivan", std::string las = "Ivanovich", std::string wor = "MEPHI", std::string pos = "Rector"): Budget(sur, nam, las, wor, pos), contractnum(num) {};
             void setNum(long n) {contractnum = n;};
             unsigned int getContractNum() const {return contractnum;};
             std::string getType() const override {return "Contract";};
@@ -89,29 +85,17 @@ namespace taxes {
         private:
             std::multimap <unsigned int, Budget*> table;
         public:
-            void add(Budget*, unsigned int);
-            int find(Budget*&, unsigned int, unsigned int);
+            void add(Budget* b, unsigned int num) {table.insert(std::pair<unsigned int, Budget*>(num, b));}
+            bool find(Budget*&, unsigned int, unsigned int);
             int ddelete(unsigned int,unsigned int);
-            void show();
+            std::stringstream& show(std::stringstream&);
             double counttax(unsigned int);
     };
 }
-int choise(const char* menu[]);
-int add_m(taxes::Table&);
-int find_m(taxes::Table&);
-int delete_m(taxes::Table&);
-int show_m(taxes::Table&);
-int counttaxes_m(taxes::Table&);
-
+int getNum(unsigned int&);
+int getNum(int&);
 int collisioncheck(taxes::Table&, taxes::Budget*&, unsigned int&, unsigned int&, int&);
 int getcontr();
 std::string getstring(const std::string);
-
-template <class T>
-T getNum(T& a) {
-        std::cin >> a;
-        if (!std::cin.good()) return 1;
-        return 2;
-    };
 
 #endif

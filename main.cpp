@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 #include "tax.h"
-
-const char* menu[6] = {"0. Quit", "1. Add element", "2. Find the element", "3. Delete the element", "4. Show table", "5. Count taxes"};
-int (*fptr[])(taxes::Table&) = {nullptr, add_m, find_m, delete_m, show_m, counttaxes_m};
+#include "dialog.h"
 
 int main() {
     taxes::Table table;
