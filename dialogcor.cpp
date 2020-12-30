@@ -1,6 +1,6 @@
 #include "dialogcor.h"
+#include "tax.h"
 
-const char* typess[2] = {"Budget", "Contract"}; //да, дублирование, а как сделать types global
 const char* submenu[8] = {"0. Back", "1. Change surname", "2. Change name", "3. Change lastname", "4. Change work", "5. Change post", "6. Add payment", "7. Change contract number"};
 int (*fptrsub[])(taxes::Budget&) = {nullptr, surname_s, name_s, lastname_s, work_s, post_s, payment_s, contract_s};
 
@@ -12,7 +12,7 @@ int choise_s(const char* submenu[], taxes::Budget& ptr) {
     do{
         std::cout << pr << std::endl;
         pr = "\nYou made a mistake! Try again!\n";
-        if (ptr.getType() == typess[0]) n = 7;
+        if (ptr.getType() == taxes::types[0]) n = 7;
         for (int i = 0; i < n; i++) std::cout << submenu[i] << '\n';
         std::cout << "Make your choise: ";
     } while((getNum(check) != 0) || (check > (n-1)));

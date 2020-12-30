@@ -3,12 +3,13 @@
 #include <string.h>
 #include "supportfunc.h"
 #include "tax.h"
-#include "global.h"
 #include <list>
 #include <map>
 #include <sstream>
 
 namespace taxes {
+    const char* types[2] = {"Budget", "Contract"};
+
     Payment::Payment(int dd, int mm, std::string ttype, unsigned int sum): type(ttype), summ(sum) {
         if (dd > 31 || dd < 1) throw std::runtime_error("Invalid input!");
         date.tm_mday = dd;
@@ -47,7 +48,7 @@ namespace taxes {
         c << "List of payments: " << std::endl;
         int i = 1;
         for (auto tmp = ptr.begin(); tmp!= ptr.end(); tmp++, i++) c << i << ") " << *tmp;
-        if (ptr.begin() == ptr.end()) c << "\e[1mEmpty\e[0m";
+        if (ptr.begin() == ptr.end()) c << "Empty";
         c << std::endl;
         return c;
     };
@@ -132,8 +133,7 @@ namespace taxes {
         find(ptr, num, 0);
         if (ptr == nullptr) std::cout << "Person with this private number doesn't exist!" << std::endl;
         else {
-            std::pair <std::multimap <unsigned int, taxes::Budget*>::iterator, std::multimap <unsigned int, taxes::Budget*>::iterator> pp;
-            pp = table.equal_range(num);
+            auto pp = table.equal_range(num);
             for (std::multimap <unsigned int, taxes::Budget*>::iterator tmp = pp.first; tmp != pp.second; tmp++) {
                 for (std::list<Payment>::iterator tmp1 = tmp->second->getIt().first; tmp1 != tmp->second->getIt().second; tmp1++) {
                     tax += tmp1->getSum()*0.13;
@@ -153,9 +153,9 @@ namespace taxes {
         }
 
     std::stringstream& Table::show(std::stringstream& ss) {
-        ss << "\n" << "\e[1mTable: \e[0m" << std::endl << "------------------------------------------------------------" << std::endl;
+        ss << "\n" << "Table: " << std::endl << "------------------------------------------------------------" << std::endl;
         for (std::multimap <unsigned int, Budget*>::iterator it = table.begin(); it != table.end(); ++it) {
-            ss << "\e[1mPrivate number: \e[0m" << (*it).first << std::endl << "\e[1mOther information: \e[0m" << std::endl << *((*it).second) << 
+            ss << "Private number: " << (*it).first << std::endl << "Other information: " << std::endl << *((*it).second) << 
             "-------------------------------------------------------------" << std::endl;
         }
         return ss;

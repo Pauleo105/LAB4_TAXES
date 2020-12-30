@@ -55,11 +55,11 @@ namespace taxes {
             void getInfo() {std::cout << *this;};
             virtual std::string getType() const;
             unsigned int getGain(std::string) const;//---
-            std::string getName() const {return surname+' '+name[0]+'.'+lastname[0]+'.';};
-            std::string getOnlyName() const {return name;};
+            std::string getName() const {return surname+' '+name[0]+'.'+lastname[0]+'.';};//getfullname
+            std::string getOnlyName() const {return name;};//без only
             std::string getOnlySurname() const {return surname;};
             std::string getOnlyLastame() const {return lastname;};
-            std::string getWork() const {return workplace;};
+            std::string getWork() const {return workplace;};//поменять на getworkplace
             std::string getPost() const {return post;}; //+++
             bool isEmpty() const {return ptr.empty();};
             void addPayment(const Payment& p) {ptr.push_back(p);};
@@ -94,6 +94,8 @@ namespace taxes {
             std::stringstream& show(std::stringstream&);
             double counttax(unsigned int);
     };
+
+    extern const char* types[2];
 }
 
 #endif

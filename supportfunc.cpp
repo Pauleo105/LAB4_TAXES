@@ -13,7 +13,7 @@ int getNum(unsigned int& a) {
         if (!std::cin.good())  {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            return 1; //почему азцикливается со строками
+            return 1;
         }
         return 0;
     };

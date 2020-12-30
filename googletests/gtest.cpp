@@ -110,8 +110,8 @@ TEST(BudgetMethods, Parametres) {
     taxes::Payment pay2(222);
     b.addPayment(pay1);
     b.addPayment(pay2);
-    std::pair<std::list<taxes::Payment>::iterator, std::list<taxes::Payment>::iterator> ptr;
-    ptr = b.getIt();
+    // std::pair<std::list<taxes::Payment>::iterator, std::list<taxes::Payment>::iterator> ptr;
+    auto ptr = b.getIt();
     ASSERT_EQ(111, (ptr.first)->getSum());
     ASSERT_EQ(222, (++(ptr.first))->getSum());
 }
