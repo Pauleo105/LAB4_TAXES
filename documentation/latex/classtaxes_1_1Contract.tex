@@ -1,0 +1,204 @@
+\hypertarget{classtaxes_1_1Contract}{}\doxysection{Класс taxes\+::Contract}
+\label{classtaxes_1_1Contract}\index{taxes::Contract@{taxes::Contract}}
+
+
+Производный класс, содержащий в себе информацию о контрактном работнике  
+
+
+
+
+{\ttfamily \#include $<$tax.\+h$>$}
+
+Граф наследования\+:taxes\+::Contract\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtaxes_1_1Contract}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtaxes_1_1Contract_ab9fbe3119ef6a8ca430a544f56b9161c}\label{classtaxes_1_1Contract_ab9fbe3119ef6a8ca430a544f56b9161c}} 
+\mbox{\hyperlink{classtaxes_1_1Contract_ab9fbe3119ef6a8ca430a544f56b9161c}{Contract}} ()
+\begin{DoxyCompactList}\small\item\em Стандартный конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Contract_ade2f2b8aec67291c11575396a51a38a5}{Contract}} (unsigned int num, int d, int m, std\+::string pay, unsigned int am, std\+::string sur=\char`\"{}Ivanov\char`\"{}, std\+::string nam=\char`\"{}Ivan\char`\"{}, std\+::string las=\char`\"{}Ivanovich\char`\"{}, std\+::string wor=\char`\"{}MEPHI\char`\"{}, std\+::string pos=\char`\"{}Rector\char`\"{})
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Contract_a07ae75aea6dc1da335eb9984045c4a7e}{Contract}} (unsigned int num, std\+::string sur=\char`\"{}Ivanov\char`\"{}, std\+::string nam=\char`\"{}Ivan\char`\"{}, std\+::string las=\char`\"{}Ivanovich\char`\"{}, std\+::string wor=\char`\"{}MEPHI\char`\"{}, std\+::string pos=\char`\"{}Rector\char`\"{})
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtaxes_1_1Contract_a3170266bc44dadcd3597fb23742031c0}{set\+Num}} (long n)
+\begin{DoxyCompactList}\small\item\em Сеттер для установки номера контракта \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classtaxes_1_1Contract_abb8adfb809cb7761b025b79746a05c37}{get\+Contract\+Num}} () const
+\begin{DoxyCompactList}\small\item\em Геттер для получения номера контракта \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Contract_a584a6f890b47d834089782d35e05d7a4}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Виртуальная функция, возвращает тип работника \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classtaxes_1_1Contract_af4adaac302ce951226eab7a9be99a574}{print}} (std\+::ostream \&) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classtaxes_1_1Contract_aeb38fbac487e1d597059750e7dc67c45}{operator$<$$<$}} (std\+::ostream \&, const \mbox{\hyperlink{classtaxes_1_1Contract}{Contract}} \&)
+\begin{DoxyCompactList}\small\item\em Перегруженный оператор вывода в поток \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Производный класс, содержащий в себе информацию о контрактном работнике 
+
+Данный класс содержит в себе конструкторы и различные атрибуты, служащие для хранения информации о контрактном работнике, а также работе с этой информации. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classtaxes_1_1Contract_ade2f2b8aec67291c11575396a51a38a5}\label{classtaxes_1_1Contract_ade2f2b8aec67291c11575396a51a38a5}} 
+\index{taxes::Contract@{taxes::Contract}!Contract@{Contract}}
+\index{Contract@{Contract}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{Contract()}{Contract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily taxes\+::\+Contract\+::\+Contract (\begin{DoxyParamCaption}\item[{unsigned int}]{num,  }\item[{int}]{d,  }\item[{int}]{m,  }\item[{std\+::string}]{pay,  }\item[{unsigned int}]{am,  }\item[{std\+::string}]{sur = {\ttfamily \char`\"{}Ivanov\char`\"{}},  }\item[{std\+::string}]{nam = {\ttfamily \char`\"{}Ivan\char`\"{}},  }\item[{std\+::string}]{las = {\ttfamily \char`\"{}Ivanovich\char`\"{}},  }\item[{std\+::string}]{wor = {\ttfamily \char`\"{}MEPHI\char`\"{}},  }\item[{std\+::string}]{pos = {\ttfamily \char`\"{}Rector\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em num} & Личный номер \\
+\hline
+{\em d} & День месяца \\
+\hline
+{\em m} & Номер месяца \\
+\hline
+{\em pay} & Тип выплаты \\
+\hline
+{\em am} & Размер выплаты \\
+\hline
+{\em sur} & Фамилия работника \\
+\hline
+{\em nam} & Имя работника \\
+\hline
+{\em las} & Отчество работника \\
+\hline
+{\em wor} & Место работы \\
+\hline
+{\em pos} & Должность \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Contract_a07ae75aea6dc1da335eb9984045c4a7e}\label{classtaxes_1_1Contract_a07ae75aea6dc1da335eb9984045c4a7e}} 
+\index{taxes::Contract@{taxes::Contract}!Contract@{Contract}}
+\index{Contract@{Contract}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{Contract()}{Contract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily taxes\+::\+Contract\+::\+Contract (\begin{DoxyParamCaption}\item[{unsigned int}]{num,  }\item[{std\+::string}]{sur = {\ttfamily \char`\"{}Ivanov\char`\"{}},  }\item[{std\+::string}]{nam = {\ttfamily \char`\"{}Ivan\char`\"{}},  }\item[{std\+::string}]{las = {\ttfamily \char`\"{}Ivanovich\char`\"{}},  }\item[{std\+::string}]{wor = {\ttfamily \char`\"{}MEPHI\char`\"{}},  }\item[{std\+::string}]{pos = {\ttfamily \char`\"{}Rector\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em num} & Личный номер \\
+\hline
+{\em sur} & Фамилия работника \\
+\hline
+{\em nam} & Имя работника \\
+\hline
+{\em las} & Отчество работника \\
+\hline
+{\em wor} & Место работы \\
+\hline
+{\em pos} & Должность \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classtaxes_1_1Contract_abb8adfb809cb7761b025b79746a05c37}\label{classtaxes_1_1Contract_abb8adfb809cb7761b025b79746a05c37}} 
+\index{taxes::Contract@{taxes::Contract}!getContractNum@{getContractNum}}
+\index{getContractNum@{getContractNum}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{getContractNum()}{getContractNum()}}
+{\footnotesize\ttfamily unsigned int taxes\+::\+Contract\+::get\+Contract\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Геттер для получения номера контракта 
+
+\begin{DoxyReturn}{Возвращает}
+Номер контракта 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Contract_a584a6f890b47d834089782d35e05d7a4}\label{classtaxes_1_1Contract_a584a6f890b47d834089782d35e05d7a4}} 
+\index{taxes::Contract@{taxes::Contract}!getType@{getType}}
+\index{getType@{getType}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Contract\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Виртуальная функция, возвращает тип работника 
+
+\begin{DoxyReturn}{Возвращает}
+Тип работника 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{classtaxes_1_1Budget_a99e049b970d36596faafa2045ef3d57e}{taxes\+::\+Budget}}.
+
+\mbox{\Hypertarget{classtaxes_1_1Contract_af4adaac302ce951226eab7a9be99a574}\label{classtaxes_1_1Contract_af4adaac302ce951226eab7a9be99a574}} 
+\index{taxes::Contract@{taxes::Contract}!print@{print}}
+\index{print@{print}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::ostream \& taxes\+::\+Contract\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Вывод элемента в поток вывода 
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \mbox{\hyperlink{classtaxes_1_1Budget_a988d8475ba25ce18680a4c96dcc78933}{taxes\+::\+Budget}}.
+
+\mbox{\Hypertarget{classtaxes_1_1Contract_a3170266bc44dadcd3597fb23742031c0}\label{classtaxes_1_1Contract_a3170266bc44dadcd3597fb23742031c0}} 
+\index{taxes::Contract@{taxes::Contract}!setNum@{setNum}}
+\index{setNum@{setNum}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{setNum()}{setNum()}}
+{\footnotesize\ttfamily void taxes\+::\+Contract\+::set\+Num (\begin{DoxyParamCaption}\item[{long}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Сеттер для установки номера контракта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em n} & Номер контракта \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\mbox{\Hypertarget{classtaxes_1_1Contract_aeb38fbac487e1d597059750e7dc67c45}\label{classtaxes_1_1Contract_aeb38fbac487e1d597059750e7dc67c45}} 
+\index{taxes::Contract@{taxes::Contract}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes::Contract@{taxes::Contract}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Contract}{Contract}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Перегруженный оператор вывода в поток 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em p} & Ссылка на объект класса \char`\"{}контрактный работник\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tax_8h}{tax.\+h}}\item 
+tax.\+cpp\end{DoxyCompactItemize}

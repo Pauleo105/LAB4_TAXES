@@ -1,0 +1,191 @@
+\hypertarget{classtaxes_1_1Payment}{}\doxysection{Класс taxes\+::Payment}
+\label{classtaxes_1_1Payment}\index{taxes::Payment@{taxes::Payment}}
+
+
+Класс, содержащий в себе информацию о выплате  
+
+
+
+
+{\ttfamily \#include $<$tax.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtaxes_1_1Payment_a4e716c7baa0084ced9ce92ebd883ad5e}\label{classtaxes_1_1Payment_a4e716c7baa0084ced9ce92ebd883ad5e}} 
+\mbox{\hyperlink{classtaxes_1_1Payment_a4e716c7baa0084ced9ce92ebd883ad5e}{Payment}} ()
+\begin{DoxyCompactList}\small\item\em Стандартный конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Payment_a31bdafe3d3b03e3838e1465e1df9d087}{Payment}} (int, int, std\+::string ttype=\char`\"{}Salary\char`\"{}, unsigned int sum=10000)
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Payment_a5aa44ca15ce35bb31fc717d422773c3f}{Payment}} (std\+::string ttype, unsigned int sum=10000)
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Payment_ad7547661b13646cea56e2ac3a01261c8}{Payment}} (unsigned int sum)
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtaxes_1_1Payment_ac52ae7f6f8b87cb023dfa67f7f50c1ed}{set\+Date}} (int, int)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Payment_ad39c837ecd9199022959b95a7a8bce6d}{set\+Type}} (std\+::string str)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Payment_ab8be1f7fc7e860b21ed16ce56816190c}{set\+Summ}} (unsigned int sum)
+\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Payment_a37f945ec8f5c5068d66200143863695c}{get\+Type}} ()
+\item 
+unsigned int \mbox{\hyperlink{classtaxes_1_1Payment_a03eba94fb4fc3661517b0bd33830c9ba}{get\+Sum}} ()
+\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Payment_a471fc60b807e24e86db3a9f631cd5d8f}{get\+Date}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classtaxes_1_1Payment_a19f33b9f9a75f99506414805f6156752}{operator$<$$<$}} (std\+::ostream \&, const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, содержащий в себе информацию о выплате 
+
+Данный класс содержит в себе конструкторы и различные атрибуты, служащие для хранения информации о выплате, а также работе с ней. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a31bdafe3d3b03e3838e1465e1df9d087}\label{classtaxes_1_1Payment_a31bdafe3d3b03e3838e1465e1df9d087}} 
+\index{taxes::Payment@{taxes::Payment}!Payment@{Payment}}
+\index{Payment@{Payment}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{Payment()}{Payment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily taxes\+::\+Payment\+::\+Payment (\begin{DoxyParamCaption}\item[{int}]{dd,  }\item[{int}]{mm,  }\item[{std\+::string}]{ttype = {\ttfamily \char`\"{}Salary\char`\"{}},  }\item[{unsigned int}]{sum = {\ttfamily 10000} }\end{DoxyParamCaption})}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em dd} & День месяца \\
+\hline
+{\em mm} & Номер месяца \\
+\hline
+{\em ttype} & Тип выплаты \\
+\hline
+{\em sum} & Размер выплаты \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a5aa44ca15ce35bb31fc717d422773c3f}\label{classtaxes_1_1Payment_a5aa44ca15ce35bb31fc717d422773c3f}} 
+\index{taxes::Payment@{taxes::Payment}!Payment@{Payment}}
+\index{Payment@{Payment}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{Payment()}{Payment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily taxes\+::\+Payment\+::\+Payment (\begin{DoxyParamCaption}\item[{std\+::string}]{ttype,  }\item[{unsigned int}]{sum = {\ttfamily 10000} }\end{DoxyParamCaption})}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ttype} & Тип выплаты \\
+\hline
+{\em sum} & Размер выплаты \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Payment_ad7547661b13646cea56e2ac3a01261c8}\label{classtaxes_1_1Payment_ad7547661b13646cea56e2ac3a01261c8}} 
+\index{taxes::Payment@{taxes::Payment}!Payment@{Payment}}
+\index{Payment@{Payment}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{Payment()}{Payment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily taxes\+::\+Payment\+::\+Payment (\begin{DoxyParamCaption}\item[{unsigned int}]{sum }\end{DoxyParamCaption})}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sum} & Размер выплаты \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a471fc60b807e24e86db3a9f631cd5d8f}\label{classtaxes_1_1Payment_a471fc60b807e24e86db3a9f631cd5d8f}} 
+\index{taxes::Payment@{taxes::Payment}!getDate@{getDate}}
+\index{getDate@{getDate}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Payment\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Геттер для получения даты выплаты \begin{DoxyReturn}{Возвращает}
+Дату выплаты 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a03eba94fb4fc3661517b0bd33830c9ba}\label{classtaxes_1_1Payment_a03eba94fb4fc3661517b0bd33830c9ba}} 
+\index{taxes::Payment@{taxes::Payment}!getSum@{getSum}}
+\index{getSum@{getSum}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{getSum()}{getSum()}}
+{\footnotesize\ttfamily unsigned int taxes\+::\+Payment\+::get\+Sum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Геттер для получения суммы выплаты \begin{DoxyReturn}{Возвращает}
+Сумму выплаты 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a37f945ec8f5c5068d66200143863695c}\label{classtaxes_1_1Payment_a37f945ec8f5c5068d66200143863695c}} 
+\index{taxes::Payment@{taxes::Payment}!getType@{getType}}
+\index{getType@{getType}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Payment\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Геттер для получения типа выплаты \begin{DoxyReturn}{Возвращает}
+Тип выплаты 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Payment_ac52ae7f6f8b87cb023dfa67f7f50c1ed}\label{classtaxes_1_1Payment_ac52ae7f6f8b87cb023dfa67f7f50c1ed}} 
+\index{taxes::Payment@{taxes::Payment}!setDate@{setDate}}
+\index{setDate@{setDate}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void taxes\+::\+Payment\+::set\+Date (\begin{DoxyParamCaption}\item[{int}]{dd,  }\item[{int}]{mm }\end{DoxyParamCaption})}
+
+Сеттер для установки даты выплаты 
+\begin{DoxyParams}{Аргументы}
+{\em dd} & День месяца \\
+\hline
+{\em mm} & Номер месяца \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Payment_ab8be1f7fc7e860b21ed16ce56816190c}\label{classtaxes_1_1Payment_ab8be1f7fc7e860b21ed16ce56816190c}} 
+\index{taxes::Payment@{taxes::Payment}!setSumm@{setSumm}}
+\index{setSumm@{setSumm}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{setSumm()}{setSumm()}}
+{\footnotesize\ttfamily void taxes\+::\+Payment\+::set\+Summ (\begin{DoxyParamCaption}\item[{unsigned int}]{sum }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки суммы выплаты 
+\begin{DoxyParams}{Аргументы}
+{\em sum} & Сумма выплаты \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Payment_ad39c837ecd9199022959b95a7a8bce6d}\label{classtaxes_1_1Payment_ad39c837ecd9199022959b95a7a8bce6d}} 
+\index{taxes::Payment@{taxes::Payment}!setType@{setType}}
+\index{setType@{setType}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void taxes\+::\+Payment\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки типа выплаты 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Тип выплаты \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\mbox{\Hypertarget{classtaxes_1_1Payment_a19f33b9f9a75f99506414805f6156752}\label{classtaxes_1_1Payment_a19f33b9f9a75f99506414805f6156752}} 
+\index{taxes::Payment@{taxes::Payment}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes::Payment@{taxes::Payment}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Вывод элемент класса \char`\"{}выплата\char`\"{} в поток вывода 
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em p} & Cсылка на выплату \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tax_8h}{tax.\+h}}\item 
+tax.\+cpp\end{DoxyCompactItemize}

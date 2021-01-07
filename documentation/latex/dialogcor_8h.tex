@@ -1,0 +1,208 @@
+\hypertarget{dialogcor_8h}{}\doxysection{Файл dialogcor.\+h}
+\label{dialogcor_8h}\index{dialogcor.h@{dialogcor.h}}
+
+
+Заголовочный файл с описанием переменных, функций и методов, необходимых для диалоговой программы коррекции элемента  
+
+
+{\ttfamily \#include \char`\"{}tax.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}supportfunc.\+h\char`\"{}}\newline
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{dialogcor_8h_a7e2fccda9599743c8478965e6468fb6d}{showsub}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для вывода диалогового меню по коррекции элемента в консоль \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_ae4bde80cdaaaf5505a372d4e1ebe69ba}{choise\+\_\+s}} (const char $\ast$, \mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Функция для вывода в консоль меню для коррекции элемента \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_a68db42e20794b5cf3bfbe3e232680f29}{surname\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения фамилии \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_a751645dd9b97c0c9c7494760cd9eb789}{name\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения имени \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_a1d7f3431ea0035934d6e0da5ceadecad}{lastname\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения отчества \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_ab009ae898acecda47bdc830420fa35d2}{work\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения места работы \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_ab778721cbbbf430960021ef397996150}{post\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения должности \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_ace18508cf2ebc13faddcaa96d2c21f6a}{payment\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для добавления выплаты \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dialogcor_8h_af1477b28a2cc78928c7126e0f260ac64}{contract\+\_\+s}} (\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Диалоговая функция для изменения номера контракта \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{dialogcor_8h_a9af5b3c59363b104dab8069d4edd4cd3}\label{dialogcor_8h_a9af5b3c59363b104dab8069d4edd4cd3}} 
+const char $\ast$ \mbox{\hyperlink{dialogcor_8h_a9af5b3c59363b104dab8069d4edd4cd3}{submenu}} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив из описаний доступных пользователю функций для коррекции элемента \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{dialogcor_8h_a4f586837d57173e520221e35fe0a993f}\label{dialogcor_8h_a4f586837d57173e520221e35fe0a993f}} 
+int($\ast$ \mbox{\hyperlink{dialogcor_8h_a4f586837d57173e520221e35fe0a993f}{fptrsub}} \mbox{[}$\,$\mbox{]})(\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Массив из указателей на функции для коррекции элемента \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл с описанием переменных, функций и методов, необходимых для диалоговой программы коррекции элемента 
+
+Данный файл содержит в себе определения переменных, функций и методов, используемых при коррекции элемента 
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{dialogcor_8h_ae4bde80cdaaaf5505a372d4e1ebe69ba}\label{dialogcor_8h_ae4bde80cdaaaf5505a372d4e1ebe69ba}} 
+\index{dialogcor.h@{dialogcor.h}!choise\_s@{choise\_s}}
+\index{choise\_s@{choise\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{choise\_s()}{choise\_s()}}
+{\footnotesize\ttfamily int choise\+\_\+s (\begin{DoxyParamCaption}\item[{const char $\ast$}]{,  }\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Функция для вывода в консоль меню для коррекции элемента 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em submenu} & Массив из описаний доступных пользователю функций для коррекции элемента \\
+\hline
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Индекс выбранной функции 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_af1477b28a2cc78928c7126e0f260ac64}\label{dialogcor_8h_af1477b28a2cc78928c7126e0f260ac64}} 
+\index{dialogcor.h@{dialogcor.h}!contract\_s@{contract\_s}}
+\index{contract\_s@{contract\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{contract\_s()}{contract\_s()}}
+{\footnotesize\ttfamily int contract\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения номера контракта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_a1d7f3431ea0035934d6e0da5ceadecad}\label{dialogcor_8h_a1d7f3431ea0035934d6e0da5ceadecad}} 
+\index{dialogcor.h@{dialogcor.h}!lastname\_s@{lastname\_s}}
+\index{lastname\_s@{lastname\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{lastname\_s()}{lastname\_s()}}
+{\footnotesize\ttfamily int lastname\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения отчества 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_a751645dd9b97c0c9c7494760cd9eb789}\label{dialogcor_8h_a751645dd9b97c0c9c7494760cd9eb789}} 
+\index{dialogcor.h@{dialogcor.h}!name\_s@{name\_s}}
+\index{name\_s@{name\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{name\_s()}{name\_s()}}
+{\footnotesize\ttfamily int name\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения имени 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_ace18508cf2ebc13faddcaa96d2c21f6a}\label{dialogcor_8h_ace18508cf2ebc13faddcaa96d2c21f6a}} 
+\index{dialogcor.h@{dialogcor.h}!payment\_s@{payment\_s}}
+\index{payment\_s@{payment\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{payment\_s()}{payment\_s()}}
+{\footnotesize\ttfamily int payment\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для добавления выплаты 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_ab778721cbbbf430960021ef397996150}\label{dialogcor_8h_ab778721cbbbf430960021ef397996150}} 
+\index{dialogcor.h@{dialogcor.h}!post\_s@{post\_s}}
+\index{post\_s@{post\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{post\_s()}{post\_s()}}
+{\footnotesize\ttfamily int post\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения должности 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_a7e2fccda9599743c8478965e6468fb6d}\label{dialogcor_8h_a7e2fccda9599743c8478965e6468fb6d}} 
+\index{dialogcor.h@{dialogcor.h}!showsub@{showsub}}
+\index{showsub@{showsub}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{showsub()}{showsub()}}
+{\footnotesize\ttfamily void showsub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для вывода диалогового меню по коррекции элемента в консоль 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{dialogcor_8h_a68db42e20794b5cf3bfbe3e232680f29}\label{dialogcor_8h_a68db42e20794b5cf3bfbe3e232680f29}} 
+\index{dialogcor.h@{dialogcor.h}!surname\_s@{surname\_s}}
+\index{surname\_s@{surname\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{surname\_s()}{surname\_s()}}
+{\footnotesize\ttfamily int surname\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения фамилии 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialogcor_8h_ab009ae898acecda47bdc830420fa35d2}\label{dialogcor_8h_ab009ae898acecda47bdc830420fa35d2}} 
+\index{dialogcor.h@{dialogcor.h}!work\_s@{work\_s}}
+\index{work\_s@{work\_s}!dialogcor.h@{dialogcor.h}}
+\doxysubsubsection{\texorpdfstring{work\_s()}{work\_s()}}
+{\footnotesize\ttfamily int work\+\_\+s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} \&}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Диалоговая функция для изменения места работы 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на элемент, который корректируется \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+1 
+\end{DoxyReturn}

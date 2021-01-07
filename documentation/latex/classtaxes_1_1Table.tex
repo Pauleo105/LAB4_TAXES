@@ -1,0 +1,145 @@
+\hypertarget{classtaxes_1_1Table}{}\doxysection{Класс taxes\+::Table}
+\label{classtaxes_1_1Table}\index{taxes::Table@{taxes::Table}}
+
+
+Класс, содержащий в себе информацию о таблице  
+
+
+
+
+{\ttfamily \#include $<$tax.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtaxes_1_1Table_a63f4866954026fb8d7f757f109cfe26b}\label{classtaxes_1_1Table_a63f4866954026fb8d7f757f109cfe26b}} 
+\mbox{\hyperlink{classtaxes_1_1Table_a63f4866954026fb8d7f757f109cfe26b}{$\sim$\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtaxes_1_1Table_ad4fa6d1ddc1e88dae67c53370cbd6528}{add}} (\mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} $\ast$, unsigned int)
+\begin{DoxyCompactList}\small\item\em Добавляет элемент в таблицу \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtaxes_1_1Table_ac65a790eb9cc86f5724316ae5a7d76e1}{find}} (\mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} $\ast$\&, unsigned int, unsigned int)
+\begin{DoxyCompactList}\small\item\em Находит работника по личному номеру и номеру контракта \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtaxes_1_1Table_a53dae1877f789a6a446030cd604e6d49}{ddelete}} (unsigned int, unsigned int)
+\begin{DoxyCompactList}\small\item\em Удаляет работника из таблицы по личному номеру и номеру контракта \end{DoxyCompactList}\item 
+std\+::stringstream \& \mbox{\hyperlink{classtaxes_1_1Table_ab6d47ecd9b060c83af096af8c8fce8b8}{show}} (std\+::stringstream \&)
+\begin{DoxyCompactList}\small\item\em Вывод таблицы в поток \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classtaxes_1_1Table_a29960415bfc39618cef885031efa6bb2}{counttax}} (unsigned int)
+\begin{DoxyCompactList}\small\item\em Вычисляет размер налога на все выплаты данного работника \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, содержащий в себе информацию о таблице 
+
+Данный класс содержит в себе конструкторы и различные атрибуты, служащие для хранения информации о работниках в таблице, а также работе с самой таблицей. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classtaxes_1_1Table_ad4fa6d1ddc1e88dae67c53370cbd6528}\label{classtaxes_1_1Table_ad4fa6d1ddc1e88dae67c53370cbd6528}} 
+\index{taxes::Table@{taxes::Table}!add@{add}}
+\index{add@{add}!taxes::Table@{taxes::Table}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily int taxes\+::\+Table\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} $\ast$}]{b,  }\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+
+
+Добавляет элемент в таблицу 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em b} & Указатель на базовый класс \char`\"{}бюджетный работник\char`\"{} \\
+\hline
+{\em num} & Личный номер \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если элемент успешно добавлен в таблицу 
+
+1, если во время добавления произошла ошибка 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Table_a29960415bfc39618cef885031efa6bb2}\label{classtaxes_1_1Table_a29960415bfc39618cef885031efa6bb2}} 
+\index{taxes::Table@{taxes::Table}!counttax@{counttax}}
+\index{counttax@{counttax}!taxes::Table@{taxes::Table}}
+\doxysubsubsection{\texorpdfstring{counttax()}{counttax()}}
+{\footnotesize\ttfamily double taxes\+::\+Table\+::counttax (\begin{DoxyParamCaption}\item[{unsigned int}]{num }\end{DoxyParamCaption})}
+
+
+
+Вычисляет размер налога на все выплаты данного работника 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em num} & Личный номер работника \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Налог на выплаты (13\% от всех выплат) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Table_a53dae1877f789a6a446030cd604e6d49}\label{classtaxes_1_1Table_a53dae1877f789a6a446030cd604e6d49}} 
+\index{taxes::Table@{taxes::Table}!ddelete@{ddelete}}
+\index{ddelete@{ddelete}!taxes::Table@{taxes::Table}}
+\doxysubsubsection{\texorpdfstring{ddelete()}{ddelete()}}
+{\footnotesize\ttfamily int taxes\+::\+Table\+::ddelete (\begin{DoxyParamCaption}\item[{unsigned int}]{privat,  }\item[{unsigned int}]{contract }\end{DoxyParamCaption})}
+
+
+
+Удаляет работника из таблицы по личному номеру и номеру контракта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em privat} & Личный номер работника \\
+\hline
+{\em contract} & Номер контракта работника \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если элемент не найден 
+
+1, если элемент успешно удален 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Table_ac65a790eb9cc86f5724316ae5a7d76e1}\label{classtaxes_1_1Table_ac65a790eb9cc86f5724316ae5a7d76e1}} 
+\index{taxes::Table@{taxes::Table}!find@{find}}
+\index{find@{find}!taxes::Table@{taxes::Table}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily bool taxes\+::\+Table\+::find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} $\ast$\&}]{ptr,  }\item[{unsigned int}]{privat,  }\item[{unsigned int}]{contract }\end{DoxyParamCaption})}
+
+
+
+Находит работника по личному номеру и номеру контракта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ptr} & Ссылка на указатель на базовый класс \char`\"{}бюджетный работник\char`\"{} \\
+\hline
+{\em privat} & Личный номер работника \\
+\hline
+{\em contract} & Номер контракта работника \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если элемент найден 
+
+false, если элемент не найден 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Table_ab6d47ecd9b060c83af096af8c8fce8b8}\label{classtaxes_1_1Table_ab6d47ecd9b060c83af096af8c8fce8b8}} 
+\index{taxes::Table@{taxes::Table}!show@{show}}
+\index{show@{show}!taxes::Table@{taxes::Table}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily std\+::stringstream \& taxes\+::\+Table\+::show (\begin{DoxyParamCaption}\item[{std\+::stringstream \&}]{ss }\end{DoxyParamCaption})}
+
+
+
+Вывод таблицы в поток 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ss} & Ссылка на поток ввода \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток строки 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tax_8h}{tax.\+h}}\item 
+tax.\+cpp\end{DoxyCompactItemize}

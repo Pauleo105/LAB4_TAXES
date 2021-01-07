@@ -1,0 +1,128 @@
+\hypertarget{supportfunc_8h}{}\doxysection{Файл supportfunc.\+h}
+\label{supportfunc_8h}\index{supportfunc.h@{supportfunc.h}}
+
+
+Заголовочный файл с описанием вспомогательных функций  
+
+
+{\ttfamily \#include \char`\"{}tax.\+h\char`\"{}}\newline
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{supportfunc_8h_a838b4a6f17288c42162e26e828f15a5b}{get\+Num}} (unsigned int \&)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для получения беззнакового целочисленного числа \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{supportfunc_8h_a9715e90cf8bf1d464b02e8febc1cb234}{get\+Num}} (int \&)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для получения целочисленного числа \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{supportfunc_8h_abefc04e00383ff4e865f2f5eda13d414}{collisioncheck}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&, \mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} $\ast$\&, unsigned int \&, unsigned int \&, int \&)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для проверки таблицы на коллизию \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{supportfunc_8h_aaf046b493a9f120e930ef796d91555fd}{getcontr}} ()
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для ввода номера контракта \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{supportfunc_8h_a823ae968e0bf369ed9e920bebc9ed89a}{getstring}} (const std\+::string)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для диалогового тестирования \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл с описанием вспомогательных функций 
+
+Данный файл содержит в себе определения функций, которые используются в других функциях как вспомогательные 
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{supportfunc_8h_abefc04e00383ff4e865f2f5eda13d414}\label{supportfunc_8h_abefc04e00383ff4e865f2f5eda13d414}} 
+\index{supportfunc.h@{supportfunc.h}!collisioncheck@{collisioncheck}}
+\index{collisioncheck@{collisioncheck}!supportfunc.h@{supportfunc.h}}
+\doxysubsubsection{\texorpdfstring{collisioncheck()}{collisioncheck()}}
+{\footnotesize\ttfamily int collisioncheck (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{tab,  }\item[{\mbox{\hyperlink{classtaxes_1_1Budget}{taxes\+::\+Budget}} $\ast$\&}]{ptr,  }\item[{unsigned int \&}]{num,  }\item[{unsigned int \&}]{contract,  }\item[{int \&}]{check }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для проверки таблицы на коллизию 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em tab} & Ссылка на таблицу \\
+\hline
+{\em ptr} & Ссылка на указатель на работника \\
+\hline
+{\em num} & Ссылка на личный номер \\
+\hline
+{\em contract} & Ссылка на номер контракта \\
+\hline
+{\em check} & Вспомогательная переменная для проверки ответа пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если коллизия есть 
+
+1, если коллизии нет 
+\end{DoxyReturn}
+\mbox{\Hypertarget{supportfunc_8h_aaf046b493a9f120e930ef796d91555fd}\label{supportfunc_8h_aaf046b493a9f120e930ef796d91555fd}} 
+\index{supportfunc.h@{supportfunc.h}!getcontr@{getcontr}}
+\index{getcontr@{getcontr}!supportfunc.h@{supportfunc.h}}
+\doxysubsubsection{\texorpdfstring{getcontr()}{getcontr()}}
+{\footnotesize\ttfamily int getcontr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для ввода номера контракта 
+
+\begin{DoxyReturn}{Возвращает}
+Номер контракта 
+\end{DoxyReturn}
+\mbox{\Hypertarget{supportfunc_8h_a9715e90cf8bf1d464b02e8febc1cb234}\label{supportfunc_8h_a9715e90cf8bf1d464b02e8febc1cb234}} 
+\index{supportfunc.h@{supportfunc.h}!getNum@{getNum}}
+\index{getNum@{getNum}!supportfunc.h@{supportfunc.h}}
+\doxysubsubsection{\texorpdfstring{getNum()}{getNum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int get\+Num (\begin{DoxyParamCaption}\item[{int \&}]{a }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для получения целочисленного числа 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em a} & Целочисленное число \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если число введено успешно 
+
+1, если число введено неверно 
+\end{DoxyReturn}
+\mbox{\Hypertarget{supportfunc_8h_a838b4a6f17288c42162e26e828f15a5b}\label{supportfunc_8h_a838b4a6f17288c42162e26e828f15a5b}} 
+\index{supportfunc.h@{supportfunc.h}!getNum@{getNum}}
+\index{getNum@{getNum}!supportfunc.h@{supportfunc.h}}
+\doxysubsubsection{\texorpdfstring{getNum()}{getNum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int get\+Num (\begin{DoxyParamCaption}\item[{unsigned int \&}]{a }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для получения беззнакового целочисленного числа 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em a} & Беззнаковое целочисленное число \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если число введено успешно 
+
+1, если число введено неверно 
+\end{DoxyReturn}
+\mbox{\Hypertarget{supportfunc_8h_a823ae968e0bf369ed9e920bebc9ed89a}\label{supportfunc_8h_a823ae968e0bf369ed9e920bebc9ed89a}} 
+\index{supportfunc.h@{supportfunc.h}!getstring@{getstring}}
+\index{getstring@{getstring}!supportfunc.h@{supportfunc.h}}
+\doxysubsubsection{\texorpdfstring{getstring()}{getstring()}}
+{\footnotesize\ttfamily std\+::string getstring (\begin{DoxyParamCaption}\item[{const std\+::string}]{what }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для диалогового тестирования 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em what} & Переменная хранящая описание того, что должен ввести пользователь \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Введенную пользователем строку 
+\end{DoxyReturn}

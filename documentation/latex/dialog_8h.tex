@@ -1,0 +1,140 @@
+\hypertarget{dialog_8h}{}\doxysection{Файл dialog.\+h}
+\label{dialog_8h}\index{dialog.h@{dialog.h}}
+
+
+Заголовочный файл с описанием переменных, функций, необходимых для диалогового тестирования программы  
+
+
+{\ttfamily \#include \char`\"{}tax.\+h\char`\"{}}\newline
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{dialog_8h_aec8a2c630847c60810c261148e814e1d}{choise}} (const char $\ast$\mbox{\hyperlink{dialog_8h_aee210ef64e1149004d26ad7c9bee0763}{menu}}\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{dialog_8h_a577082ba30e74357c3afac6dc8138ad1}{add\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\item 
+int \mbox{\hyperlink{dialog_8h_adeb26b3bc5db79dae7d6106d8e24947e}{find\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\item 
+int \mbox{\hyperlink{dialog_8h_a830cbc08aaf54f70f3c387a17b5ec959}{delete\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\item 
+int \mbox{\hyperlink{dialog_8h_af1bc661f07a735cc034436648c7a7b23}{show\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\item 
+int \mbox{\hyperlink{dialog_8h_aee26deb4acfd5375391459c5854d1883}{counttaxes\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\item 
+int \mbox{\hyperlink{dialog_8h_a575ecd198dd30011902f909b64b4c465}{correct\+\_\+m}} (\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{dialog_8h_aee210ef64e1149004d26ad7c9bee0763}\label{dialog_8h_aee210ef64e1149004d26ad7c9bee0763}} 
+const char $\ast$ \mbox{\hyperlink{dialog_8h_aee210ef64e1149004d26ad7c9bee0763}{menu}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив строк, содержащий описание доступных опций \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{dialog_8h_a5353ffaa94b7f017d27af303d0d858b0}\label{dialog_8h_a5353ffaa94b7f017d27af303d0d858b0}} 
+int($\ast$ \mbox{\hyperlink{dialog_8h_a5353ffaa94b7f017d27af303d0d858b0}{fptr}} \mbox{[}$\,$\mbox{]})(\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&)
+\begin{DoxyCompactList}\small\item\em Массив указателей на функции \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл с описанием переменных, функций, необходимых для диалогового тестирования программы 
+
+Данный файл содержит в себе определения переменных, функций, используемых при диалоговом тестировании программы. 
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{dialog_8h_a577082ba30e74357c3afac6dc8138ad1}\label{dialog_8h_a577082ba30e74357c3afac6dc8138ad1}} 
+\index{dialog.h@{dialog.h}!add\_m@{add\_m}}
+\index{add\_m@{add\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{add\_m()}{add\_m()}}
+{\footnotesize\ttfamily int add\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для добавления нового элемента в таблицу 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_aec8a2c630847c60810c261148e814e1d}\label{dialog_8h_aec8a2c630847c60810c261148e814e1d}} 
+\index{dialog.h@{dialog.h}!choise@{choise}}
+\index{choise@{choise}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{choise()}{choise()}}
+{\footnotesize\ttfamily int choise (\begin{DoxyParamCaption}\item[{const char $\ast$}]{menu\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Выводит список доступных пользователю методов в консоль 
+\begin{DoxyParams}{Аргументы}
+{\em menu} & Массив строк, содержащий описание доступных опций \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Индекс массива, соответствующий той функции, которую выбрал пользователь 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_a575ecd198dd30011902f909b64b4c465}\label{dialog_8h_a575ecd198dd30011902f909b64b4c465}} 
+\index{dialog.h@{dialog.h}!correct\_m@{correct\_m}}
+\index{correct\_m@{correct\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{correct\_m()}{correct\_m()}}
+{\footnotesize\ttfamily int correct\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для вызова меню для коррекции записи 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_aee26deb4acfd5375391459c5854d1883}\label{dialog_8h_aee26deb4acfd5375391459c5854d1883}} 
+\index{dialog.h@{dialog.h}!counttaxes\_m@{counttaxes\_m}}
+\index{counttaxes\_m@{counttaxes\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{counttaxes\_m()}{counttaxes\_m()}}
+{\footnotesize\ttfamily int counttaxes\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для рассчета налога одного человека 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_a830cbc08aaf54f70f3c387a17b5ec959}\label{dialog_8h_a830cbc08aaf54f70f3c387a17b5ec959}} 
+\index{dialog.h@{dialog.h}!delete\_m@{delete\_m}}
+\index{delete\_m@{delete\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{delete\_m()}{delete\_m()}}
+{\footnotesize\ttfamily int delete\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для удаления элемента из таблицы 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_adeb26b3bc5db79dae7d6106d8e24947e}\label{dialog_8h_adeb26b3bc5db79dae7d6106d8e24947e}} 
+\index{dialog.h@{dialog.h}!find\_m@{find\_m}}
+\index{find\_m@{find\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{find\_m()}{find\_m()}}
+{\footnotesize\ttfamily int find\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для нахождения элемента в таблице 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}
+\mbox{\Hypertarget{dialog_8h_af1bc661f07a735cc034436648c7a7b23}\label{dialog_8h_af1bc661f07a735cc034436648c7a7b23}} 
+\index{dialog.h@{dialog.h}!show\_m@{show\_m}}
+\index{show\_m@{show\_m}!dialog.h@{dialog.h}}
+\doxysubsubsection{\texorpdfstring{show\_m()}{show\_m()}}
+{\footnotesize\ttfamily int show\+\_\+m (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtaxes_1_1Table}{taxes\+::\+Table}} \&}]{table }\end{DoxyParamCaption})}
+
+Диалоговая функция для вывода таблицы в консоль 
+\begin{DoxyParams}{Аргументы}
+{\em table} & Ссылка на таблицу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Единицу, если функция закончила свою работу без ошибок 
+\end{DoxyReturn}

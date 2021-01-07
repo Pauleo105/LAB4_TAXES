@@ -1,0 +1,415 @@
+\hypertarget{classtaxes_1_1Budget}{}\doxysection{Класс taxes\+::Budget}
+\label{classtaxes_1_1Budget}\index{taxes::Budget@{taxes::Budget}}
+
+
+Базовый класс, содержащий в себе информацию о бюджетном работнике  
+
+
+
+
+{\ttfamily \#include $<$tax.\+h$>$}
+
+Граф наследования\+:taxes\+::Budget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtaxes_1_1Budget}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtaxes_1_1Budget_a46b38ac2c3607e48a3a1d19a31eabab7}{Budget}} (std\+::string sur=\char`\"{}Ivanov\char`\"{}, std\+::string nam=\char`\"{}Ivan\char`\"{}, std\+::string las=\char`\"{}Ivanovich\char`\"{}, std\+::string wor=\char`\"{}MEPHI\char`\"{}, std\+::string pos=\char`\"{}Rector\char`\"{})
+\begin{DoxyCompactList}\small\item\em Стандартный конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Budget_a9cfbb121d26bf7085b4f9c12f954790d}{Budget}} (int d, int m, std\+::string pay, unsigned int am)
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtaxes_1_1Budget_a0345ebb719d52afc3d7c1d2d96a08a8d}{Budget}} (int d, int m, std\+::string pay, unsigned int am, std\+::string sur, std\+::string nam, std\+::string las, std\+::string wor, std\+::string pos)
+\begin{DoxyCompactList}\small\item\em Конструктор \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_ad9c8b258e1c9fea768f13e8358d1ef75}{set\+Name}} (std\+::string str)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_af8e8011d86d56ad329236bf1a9e0f81c}{set\+Surname}} (std\+::string str)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_aa07644985616d45c6a888edd76e0874f}{set\+Lastname}} (std\+::string str)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_a93b21acd8b367db0397842adb261668a}{set\+Workplace}} (std\+::string str)
+\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_a71e8d0976ef4e9fab49daa9f66fd8675}{set\+Post}} (std\+::string str)
+\item 
+std\+::pair$<$ std\+::list$<$ \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} $>$\+::iterator, std\+::list$<$ \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} $>$\+::iterator $>$ \mbox{\hyperlink{classtaxes_1_1Budget_a07bdd487168ba60ac31b4bbdd985c26d}{get\+It}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для получения итератора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classtaxes_1_1Budget_af17b0a5430f28466fc3fdd4d2c588614}\label{classtaxes_1_1Budget_af17b0a5430f28466fc3fdd4d2c588614}} 
+void \mbox{\hyperlink{classtaxes_1_1Budget_af17b0a5430f28466fc3fdd4d2c588614}{get\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Вывод информации об элементе \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_a99e049b970d36596faafa2045ef3d57e}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Виртуальная функция, возвращает тип работника \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classtaxes_1_1Budget_af3f0d86f72bfee6a9b397d573bdff086}{get\+Gain}} (std\+::string) const
+\begin{DoxyCompactList}\small\item\em Возвращает заработок работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_a44a7fca34c72052157e30b56ef7f53d2}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает ФИО работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_ac36a8549b975747eac7f5d60766873d8}{get\+Only\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает имя работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_a31a2c06e36601685259700ce3d9a9773}{get\+Only\+Surname}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает фамилию работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_a274d89316a7987b9a4f64ec392328ce0}{get\+Only\+Lastame}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает отчество работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_a9e98ed058fbf93986dc7c2b6b00fe443}{get\+Work}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает место работы работника \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtaxes_1_1Budget_af6e3ae7c418336dd111cb6597387bb8f}{get\+Post}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает должность работника \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classtaxes_1_1Budget_a6b9c7b9c9d9089889cfe6d62fba3d918}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Проверяет, пуст ли список выплат \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtaxes_1_1Budget_a273a47cb644f3bd8974bfdae5167435d}{add\+Payment}} (const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&p)
+\begin{DoxyCompactList}\small\item\em Добавляет выплату \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::ostream \& \mbox{\hyperlink{classtaxes_1_1Budget_a988d8475ba25ce18680a4c96dcc78933}{print}} (std\+::ostream \&) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classtaxes_1_1Budget_a124d0ba0d400906afab3418fcf1e9a7d}{operator$<$$<$}} (std\+::ostream \&, const \mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} \&)
+\begin{DoxyCompactList}\small\item\em Перегруженный оператор вывода в поток \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Базовый класс, содержащий в себе информацию о бюджетном работнике 
+
+Данный класс содержит в себе конструкторы и различные атрибуты, служащие для хранения информации о бюджетном работнике, а также работе с этой информации. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a46b38ac2c3607e48a3a1d19a31eabab7}\label{classtaxes_1_1Budget_a46b38ac2c3607e48a3a1d19a31eabab7}} 
+\index{taxes::Budget@{taxes::Budget}!Budget@{Budget}}
+\index{Budget@{Budget}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{Budget()}{Budget()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily taxes\+::\+Budget\+::\+Budget (\begin{DoxyParamCaption}\item[{std\+::string}]{sur = {\ttfamily \char`\"{}Ivanov\char`\"{}},  }\item[{std\+::string}]{nam = {\ttfamily \char`\"{}Ivan\char`\"{}},  }\item[{std\+::string}]{las = {\ttfamily \char`\"{}Ivanovich\char`\"{}},  }\item[{std\+::string}]{wor = {\ttfamily \char`\"{}MEPHI\char`\"{}},  }\item[{std\+::string}]{pos = {\ttfamily \char`\"{}Rector\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Стандартный конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em sur} & Фамилия \\
+\hline
+{\em nam} & Имя \\
+\hline
+{\em las} & Отчество \\
+\hline
+{\em wor} & Место работы \\
+\hline
+{\em pos} & Должность \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a9cfbb121d26bf7085b4f9c12f954790d}\label{classtaxes_1_1Budget_a9cfbb121d26bf7085b4f9c12f954790d}} 
+\index{taxes::Budget@{taxes::Budget}!Budget@{Budget}}
+\index{Budget@{Budget}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{Budget()}{Budget()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily taxes\+::\+Budget\+::\+Budget (\begin{DoxyParamCaption}\item[{int}]{d,  }\item[{int}]{m,  }\item[{std\+::string}]{pay,  }\item[{unsigned int}]{am }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em d} & День месяца \\
+\hline
+{\em m} & Номер месяца \\
+\hline
+{\em pay} & Тип выплаты \\
+\hline
+{\em am} & Размер выплаты \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a0345ebb719d52afc3d7c1d2d96a08a8d}\label{classtaxes_1_1Budget_a0345ebb719d52afc3d7c1d2d96a08a8d}} 
+\index{taxes::Budget@{taxes::Budget}!Budget@{Budget}}
+\index{Budget@{Budget}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{Budget()}{Budget()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily taxes\+::\+Budget\+::\+Budget (\begin{DoxyParamCaption}\item[{int}]{d,  }\item[{int}]{m,  }\item[{std\+::string}]{pay,  }\item[{unsigned int}]{am,  }\item[{std\+::string}]{sur,  }\item[{std\+::string}]{nam,  }\item[{std\+::string}]{las,  }\item[{std\+::string}]{wor,  }\item[{std\+::string}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em d} & День месяца \\
+\hline
+{\em m} & Номер месяца \\
+\hline
+{\em pay} & Тип выплаты \\
+\hline
+{\em am} & Размер выплаты \\
+\hline
+{\em sur} & Фамилия \\
+\hline
+{\em nam} & Имя \\
+\hline
+{\em las} & Отчество \\
+\hline
+{\em wor} & Место работы \\
+\hline
+{\em pos} & Должность \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a273a47cb644f3bd8974bfdae5167435d}\label{classtaxes_1_1Budget_a273a47cb644f3bd8974bfdae5167435d}} 
+\index{taxes::Budget@{taxes::Budget}!addPayment@{addPayment}}
+\index{addPayment@{addPayment}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{addPayment()}{addPayment()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::add\+Payment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Добавляет выплату 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em p} & Элемент класса \char`\"{}выплата\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_af3f0d86f72bfee6a9b397d573bdff086}\label{classtaxes_1_1Budget_af3f0d86f72bfee6a9b397d573bdff086}} 
+\index{taxes::Budget@{taxes::Budget}!getGain@{getGain}}
+\index{getGain@{getGain}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getGain()}{getGain()}}
+{\footnotesize\ttfamily unsigned int taxes\+::\+Budget\+::get\+Gain (\begin{DoxyParamCaption}\item[{std\+::string}]{typ }\end{DoxyParamCaption}) const}
+
+
+
+Возвращает заработок работника 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em typ} & Тип работника \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Заработок работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a07bdd487168ba60ac31b4bbdd985c26d}\label{classtaxes_1_1Budget_a07bdd487168ba60ac31b4bbdd985c26d}} 
+\index{taxes::Budget@{taxes::Budget}!getIt@{getIt}}
+\index{getIt@{getIt}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getIt()}{getIt()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::list$<$ \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} $>$\+::iterator, std\+::list$<$ \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} $>$\+::iterator $>$ taxes\+::\+Budget\+::get\+It (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Геттер для получения итератора 
+
+\begin{DoxyReturn}{Возвращает}
+Итератор 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a44a7fca34c72052157e30b56ef7f53d2}\label{classtaxes_1_1Budget_a44a7fca34c72052157e30b56ef7f53d2}} 
+\index{taxes::Budget@{taxes::Budget}!getName@{getName}}
+\index{getName@{getName}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает ФИО работника 
+
+\begin{DoxyReturn}{Возвращает}
+ФИО работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a274d89316a7987b9a4f64ec392328ce0}\label{classtaxes_1_1Budget_a274d89316a7987b9a4f64ec392328ce0}} 
+\index{taxes::Budget@{taxes::Budget}!getOnlyLastame@{getOnlyLastame}}
+\index{getOnlyLastame@{getOnlyLastame}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getOnlyLastame()}{getOnlyLastame()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Only\+Lastame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает отчество работника 
+
+\begin{DoxyReturn}{Возвращает}
+Отчество работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_ac36a8549b975747eac7f5d60766873d8}\label{classtaxes_1_1Budget_ac36a8549b975747eac7f5d60766873d8}} 
+\index{taxes::Budget@{taxes::Budget}!getOnlyName@{getOnlyName}}
+\index{getOnlyName@{getOnlyName}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getOnlyName()}{getOnlyName()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Only\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает имя работника 
+
+\begin{DoxyReturn}{Возвращает}
+Имя работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a31a2c06e36601685259700ce3d9a9773}\label{classtaxes_1_1Budget_a31a2c06e36601685259700ce3d9a9773}} 
+\index{taxes::Budget@{taxes::Budget}!getOnlySurname@{getOnlySurname}}
+\index{getOnlySurname@{getOnlySurname}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getOnlySurname()}{getOnlySurname()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Only\+Surname (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает фамилию работника 
+
+\begin{DoxyReturn}{Возвращает}
+Фамилию работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_af6e3ae7c418336dd111cb6597387bb8f}\label{classtaxes_1_1Budget_af6e3ae7c418336dd111cb6597387bb8f}} 
+\index{taxes::Budget@{taxes::Budget}!getPost@{getPost}}
+\index{getPost@{getPost}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getPost()}{getPost()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Post (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает должность работника 
+
+\begin{DoxyReturn}{Возвращает}
+Должность работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a99e049b970d36596faafa2045ef3d57e}\label{classtaxes_1_1Budget_a99e049b970d36596faafa2045ef3d57e}} 
+\index{taxes::Budget@{taxes::Budget}!getType@{getType}}
+\index{getType@{getType}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Виртуальная функция, возвращает тип работника 
+
+\begin{DoxyReturn}{Возвращает}
+Тип работника 
+\end{DoxyReturn}
+
+
+Переопределяется в \mbox{\hyperlink{classtaxes_1_1Contract_a584a6f890b47d834089782d35e05d7a4}{taxes\+::\+Contract}}.
+
+\mbox{\Hypertarget{classtaxes_1_1Budget_a9e98ed058fbf93986dc7c2b6b00fe443}\label{classtaxes_1_1Budget_a9e98ed058fbf93986dc7c2b6b00fe443}} 
+\index{taxes::Budget@{taxes::Budget}!getWork@{getWork}}
+\index{getWork@{getWork}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{getWork()}{getWork()}}
+{\footnotesize\ttfamily std\+::string taxes\+::\+Budget\+::get\+Work (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает место работы работника 
+
+\begin{DoxyReturn}{Возвращает}
+Место работы работника 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a6b9c7b9c9d9089889cfe6d62fba3d918}\label{classtaxes_1_1Budget_a6b9c7b9c9d9089889cfe6d62fba3d918}} 
+\index{taxes::Budget@{taxes::Budget}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool taxes\+::\+Budget\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Проверяет, пуст ли список выплат 
+
+\begin{DoxyReturn}{Возвращает}
+true, если список пуст 
+
+false, если список не пуст 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a988d8475ba25ce18680a4c96dcc78933}\label{classtaxes_1_1Budget_a988d8475ba25ce18680a4c96dcc78933}} 
+\index{taxes::Budget@{taxes::Budget}!print@{print}}
+\index{print@{print}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily std\+::ostream \& taxes\+::\+Budget\+::print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Вывод элемента в поток вывода 
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+
+
+Переопределяется в \mbox{\hyperlink{classtaxes_1_1Contract_af4adaac302ce951226eab7a9be99a574}{taxes\+::\+Contract}}.
+
+\mbox{\Hypertarget{classtaxes_1_1Budget_aa07644985616d45c6a888edd76e0874f}\label{classtaxes_1_1Budget_aa07644985616d45c6a888edd76e0874f}} 
+\index{taxes::Budget@{taxes::Budget}!setLastname@{setLastname}}
+\index{setLastname@{setLastname}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{setLastname()}{setLastname()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::set\+Lastname (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки отчества 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Отчество \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_ad9c8b258e1c9fea768f13e8358d1ef75}\label{classtaxes_1_1Budget_ad9c8b258e1c9fea768f13e8358d1ef75}} 
+\index{taxes::Budget@{taxes::Budget}!setName@{setName}}
+\index{setName@{setName}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки имени 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Имя \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a71e8d0976ef4e9fab49daa9f66fd8675}\label{classtaxes_1_1Budget_a71e8d0976ef4e9fab49daa9f66fd8675}} 
+\index{taxes::Budget@{taxes::Budget}!setPost@{setPost}}
+\index{setPost@{setPost}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{setPost()}{setPost()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::set\+Post (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки должности 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Должность \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_af8e8011d86d56ad329236bf1a9e0f81c}\label{classtaxes_1_1Budget_af8e8011d86d56ad329236bf1a9e0f81c}} 
+\index{taxes::Budget@{taxes::Budget}!setSurname@{setSurname}}
+\index{setSurname@{setSurname}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{setSurname()}{setSurname()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::set\+Surname (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки фамилии 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Фамилия \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a93b21acd8b367db0397842adb261668a}\label{classtaxes_1_1Budget_a93b21acd8b367db0397842adb261668a}} 
+\index{taxes::Budget@{taxes::Budget}!setWorkplace@{setWorkplace}}
+\index{setWorkplace@{setWorkplace}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{setWorkplace()}{setWorkplace()}}
+{\footnotesize\ttfamily void taxes\+::\+Budget\+::set\+Workplace (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Сеттер для установки места работы 
+\begin{DoxyParams}{Аргументы}
+{\em str} & Место работы \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Документация по друзьям класса и функциям, относящимся к классу}
+\mbox{\Hypertarget{classtaxes_1_1Budget_a124d0ba0d400906afab3418fcf1e9a7d}\label{classtaxes_1_1Budget_a124d0ba0d400906afab3418fcf1e9a7d}} 
+\index{taxes::Budget@{taxes::Budget}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes::Budget@{taxes::Budget}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Перегруженный оператор вывода в поток 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em b} & Ссылка на объект класса \char`\"{}бюджетный работник\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tax_8h}{tax.\+h}}\item 
+tax.\+cpp\end{DoxyCompactItemize}

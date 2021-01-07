@@ -9,8 +9,9 @@
 #include <sstream>
 #include "dialog.h"
 
-const int AMOUNT = 7;
-const char* menu[7] = {"0. Quit", "1. Add element", "2. Find the element", "3. Delete the element", "4. Show table", "5. Count taxes", "6. Correct record"};
+#define AMOUNT 7
+
+const char* menu[AMOUNT] = {"0. Quit", "1. Add element", "2. Find the element", "3. Delete the element", "4. Show table", "5. Count taxes", "6. Correct record"};
 int (*fptr[])(taxes::Table&) = {nullptr, add_m, find_m, delete_m, show_m, counttaxes_m, correct_m};
 
 int choise(const char* menu[]) {
@@ -20,12 +21,12 @@ int choise(const char* menu[]) {
         std::cout << pr << std::endl;
         pr = "\nYou made a mistake! Try again!\n";
         for (int i = 0; i < AMOUNT; i++) std::cout << menu[i] << '\n';
-        std::cout << "Make your choise: ";              //ПОЧЕМУ НЕ ВЫВОДИТСЯ СРАЗУ, ПОЧЕМУ ПРИ СТРОКЕ ЗАЦИКЛИВАЕТСЯ
+        std::cout << "Make your choise: ";              
     } while((getNum(check) != 0) || (check > (AMOUNT-1)));
     return check;
 }
 
-int add_m(taxes::Table& tab) {
+int add_m(taxes::Table& table) {
     unsigned int num;
     int check;
     const char* pr = "";
@@ -43,7 +44,7 @@ int add_m(taxes::Table& tab) {
     pr = "";
     unsigned int contract = check ? getcontr() : 0;
     taxes::Budget* ptr = nullptr;
-    if (!collisioncheck(tab, ptr, num, contract, check)) return 1;
+    if (!collisioncheck(table, ptr, num, contract, check)) return 1;
     std::string name, sur, last;
     if (ptr!=nullptr) {
         name = ptr->getOnlyName();
@@ -63,11 +64,11 @@ int add_m(taxes::Table& tab) {
     }
     if (check) {
         taxes::Budget* b = new taxes::Contract(contract, sur, name, last, getstring("work"), getstring("post"));
-        tab.add(b, num);
+        table.add(b, num);
     }
     else {
         taxes::Budget* b = new taxes::Budget(sur, name, last, getstring("work"), getstring("post"));
-        tab.add(b, num);
+        table.add(b, num);
     }
     return 1;
 }
@@ -84,7 +85,7 @@ int find_m(taxes::Table& table) {
     } while (getNum(num) > 0);
     table.find(ptr, num, 0);
     if (ptr == nullptr) {
-        std::cout << "\nYour element is not found!" << std::endl;
+        std::cout << "\nYour element was not found!" << std::endl;
         return 1;
     }
     pr = "";
@@ -96,7 +97,7 @@ int find_m(taxes::Table& table) {
     pr = "";
     unsigned int contract = check ? getcontr() : 0;
     if (table.find(ptr, num, contract)) std::cout << "\nYour element is:" << std::endl << *ptr << std::endl;
-    else std::cout << "\nYour element is not found!" << std::endl; 
+    else std::cout << "\nYour element was not found!" << std::endl; 
     return 1;
 }
 
@@ -154,7 +155,7 @@ int correct_m(taxes::Table& table) {
     } while (getNum(num) > 0);
     table.find(ptr, num, 0);
     if (ptr == nullptr) {
-        std::cout << "\nYour element doesn't found!" << std::endl;
+        std::cout << "\nYour element wasn't found!" << std::endl;
         return 1;
     }
     pr = "";
@@ -166,6 +167,6 @@ int correct_m(taxes::Table& table) {
     pr = "";
     unsigned int contract = check ? getcontr() : 0;
     if (table.find(ptr, num, contract)) showsub(*ptr);
-    else std::cout << "\nYour element doesn't found!" << std::endl; 
+    else std::cout << "\nYour element wasn't found!" << std::endl; 
     return 1;
 }

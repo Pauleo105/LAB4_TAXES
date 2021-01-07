@@ -1,0 +1,89 @@
+\hypertarget{namespacetaxes}{}\doxysection{Пространство имен taxes}
+\label{namespacetaxes}\index{taxes@{taxes}}
+
+
+Пространство имен, содержащее все классы для работы с налоговыми вычетами  
+
+
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}}
+\begin{DoxyCompactList}\small\item\em Класс, содержащий в себе информацию о выплате \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtaxes_1_1Budget}{Budget}}
+\begin{DoxyCompactList}\small\item\em Базовый класс, содержащий в себе информацию о бюджетном работнике \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtaxes_1_1Contract}{Contract}}
+\begin{DoxyCompactList}\small\item\em Производный класс, содержащий в себе информацию о контрактном работнике \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtaxes_1_1Table}{Table}}
+\begin{DoxyCompactList}\small\item\em Класс, содержащий в себе информацию о таблице \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespacetaxes_a55cc0152908fe7a8be14099ce1eb4025}{operator$<$$<$}} (std\+::ostream \&c, const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&p)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespacetaxes_a223398a067a8dd30d85a81d83ad7710e}{operator$<$$<$}} (std\+::ostream \&c, const \mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} \&b)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespacetaxes_a8a2643fe0e97be478c05c901fab25fd1}{operator$<$$<$}} (std\+::ostream \&c, const \mbox{\hyperlink{classtaxes_1_1Contract}{Contract}} \&p)
+\end{DoxyCompactItemize}
+\doxysubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacetaxes_ae2b08a18b2a4b4090174649b8a3d6799}\label{namespacetaxes_ae2b08a18b2a4b4090174649b8a3d6799}} 
+const char $\ast$ \mbox{\hyperlink{namespacetaxes_ae2b08a18b2a4b4090174649b8a3d6799}{types}} \mbox{[}2\mbox{]} = \{\char`\"{}Budget\char`\"{}, \char`\"{}\mbox{\hyperlink{classtaxes_1_1Contract}{Contract}}\char`\"{}\}
+\begin{DoxyCompactList}\small\item\em Типы работников \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Пространство имен, содержащее все классы для работы с налоговыми вычетами 
+
+Данное пространство имен содержит определения классов, функций-\/друзей классов и переменных, связанные с работой с налогами 
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{namespacetaxes_a223398a067a8dd30d85a81d83ad7710e}\label{namespacetaxes_a223398a067a8dd30d85a81d83ad7710e}} 
+\index{taxes@{taxes}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes@{taxes}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily std\+::ostream\& taxes\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Budget}{Budget}} \&}]{b }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em b} & Ссылка на объект класса \char`\"{}бюджетный работник\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacetaxes_a8a2643fe0e97be478c05c901fab25fd1}\label{namespacetaxes_a8a2643fe0e97be478c05c901fab25fd1}} 
+\index{taxes@{taxes}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes@{taxes}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily std\+::ostream\& taxes\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Contract}{Contract}} \&}]{p }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em p} & Ссылка на объект класса \char`\"{}контрактный работник\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacetaxes_a55cc0152908fe7a8be14099ce1eb4025}\label{namespacetaxes_a55cc0152908fe7a8be14099ce1eb4025}} 
+\index{taxes@{taxes}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taxes@{taxes}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::ostream\& taxes\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{c,  }\item[{const \mbox{\hyperlink{classtaxes_1_1Payment}{Payment}} \&}]{p }\end{DoxyParamCaption})}
+
+Вывод элемент класса \char`\"{}выплата\char`\"{} в поток вывода 
+\begin{DoxyParams}{Аргументы}
+{\em c} & Ссылка на поток вывода \\
+\hline
+{\em p} & Cсылка на выплату \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Ссылку на поток вывода 
+\end{DoxyReturn}
